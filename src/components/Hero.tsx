@@ -16,8 +16,8 @@ import {
 
 export function Hero() {
   return (
-    <section className="relative pt-32 pb-20 md:pt-36 md:pb-24 border-b border-border bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative pt-28 pb-16 md:pt-32 md:pb-20 border-b border-border bg-background">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           {/* Left: Text & Actions */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
@@ -90,7 +90,7 @@ export function Hero() {
                   Ürün Portföyü Özeti
                 </CardTitle>
                 <CardDescription>
-                  Ders simülasyonu kapsamında onaylı fiyat ve tedarik koşulları
+                  Kurumsal B2B fiyat ve resmi tedarik koşulları
                 </CardDescription>
               </CardHeader>
 

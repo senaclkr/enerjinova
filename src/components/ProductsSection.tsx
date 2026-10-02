@@ -74,8 +74,8 @@ export function ProductsSection() {
       description:
         "Enerji Modülü ihtiyacı bulunan SmartBox üreticilerine güvenilir ve sürdürülebilir B2B tedarik hizmeti sunuyor, iş ortaklarımızın üretim süreçlerine destek oluyoruz.",
       features: [
-        "Simülasyon turlarına göre planlanan sevkiyat",
-        "Ders yürütücüsü ve taraf onaylı resmi sözleşme",
+        "Üretim takvimine göre planlanan zamanında sevkiyat",
+        "Yetkili kurumsal satın alma ve teslim sözleşmesi",
         "Piyasa koşullarına göre esnek görüşme imkanı",
         "Toplu alımlarda vadeli ödeme değerlendirmesi",
         "Sürdürülebilir tedarik güvencesi",
@@ -92,7 +92,7 @@ export function ProductsSection() {
 
   return (
     <section id="urunler" className="py-20 bg-background border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <Badge variant="secondary" className="px-3 py-1 text-xs">

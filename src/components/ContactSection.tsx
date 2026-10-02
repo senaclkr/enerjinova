@@ -25,7 +25,7 @@ export function ContactSection() {
             Bizimle İletişime Geçin
           </h2>
           <p className="text-base text-muted-foreground max-w-xl mx-auto">
-            SmartBox alımı, B2B Enerji Modülü tedariği ve simülasyon iş birlikleri için
+            SmartBox alımı, B2B Enerji Modülü tedariği ve kurumsal iş birlikleri için
             bize resmi e-posta adresimiz üzerinden ulaşabilirsiniz.
           </p>
         </div>
@@ -52,7 +52,7 @@ export function ContactSection() {
             <div className="p-3 rounded-lg bg-muted/50 border border-border text-xs text-muted-foreground flex items-center justify-center gap-2 text-left">
               <ShieldCheck className="w-4 h-4 text-primary shrink-0" />
               <span>
-                Siparişler, gerekli taraf ve ders yürütücüsü onayları tamamlandıktan sonra kesinleşir.
+                Siparişler, yetkili kurul ve sözleşme onay süreçleri tamamlandıktan sonra kesinleşir.
               </span>
             </div>
           </CardContent>

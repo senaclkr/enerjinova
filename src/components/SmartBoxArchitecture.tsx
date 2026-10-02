@@ -63,7 +63,7 @@ export function SmartBoxArchitecture() {
       isNovaCore: false,
       price: "Entegre",
       icon: Radio,
-      desc: "SmartBox'ın merkezi simülasyon ve bulut yönetim sistemlerine veri aktarımını sağlayan arayüz.",
+      desc: "SmartBox'ın merkezi telemetri ve bulut yönetim sistemlerine veri aktarımını sağlayan arayüz.",
       status: "SmartBox İçin Entegre Edilen Bileşen",
     },
     {
@@ -113,7 +113,7 @@ export function SmartBoxArchitecture() {
 
   return (
     <section id="mimari" className="py-20 bg-muted/20 border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <Badge variant="secondary" className="px-3 py-1 text-xs">

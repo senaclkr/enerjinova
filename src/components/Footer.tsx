@@ -13,7 +13,7 @@ export function Footer() {
 
   return (
     <footer className="bg-muted/40 border-t border-border text-xs text-muted-foreground">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
           {/* Brand Info */}
           <div className="md:col-span-5 space-y-3">
@@ -100,7 +100,7 @@ export function Footer() {
                 </a>
               </div>
               <p className="text-[11px] text-muted-foreground">
-                Sipariş onayları ders yürütücüsü ve taraf onayları ile kesinleşir.
+                Sipariş onayları kurumsal sözleşme ve yetkili onayları ile kesinleşir.
               </p>
             </div>
 
@@ -122,7 +122,7 @@ export function Footer() {
           <div>
             © {new Date().getFullYear()} EnerjiNova A.Ş. — Tüm Hakları Saklıdır.
           </div>
-          <div>Ders Simülasyonu Kapsamında Hazırlanmıştır</div>
+          <div>SmartBox & B2B Enerji Çözümleri</div>
         </div>
       </div>
     </footer>

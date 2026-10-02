@@ -65,16 +65,16 @@ export function PricingTermsSection() {
     },
     {
       title: "Sipariş Onay Süreci",
-      detail: "Çift Taraflı & Yürütücü Onayı",
+      detail: "Yetkili Onayı & Sözleşme",
       explanation:
-        "Gerekli taraf ve ders yürütücüsü onayları tamamlandıktan sonra sözleşme kesinleşir.",
+        "Yetkili kurullar ve çift taraflı sözleşme imza süreçleri tamamlandıktan sonra kesinleşir.",
       icon: AlertTriangle,
     },
   ];
 
   return (
     <section id="fiyat-listesi" className="py-20 bg-background border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <Badge variant="secondary" className="px-3 py-1 text-xs">
@@ -152,7 +152,7 @@ export function PricingTermsSection() {
               Sözleşme ve Tedarik Koşulları
             </h3>
             <p className="text-xs text-muted-foreground mt-1">
-              Ders simülasyonu yönergeleri ve ticari prensipler
+              Kurumsal satın alma protokolü ve ticari ilkelerimiz
             </p>
           </div>
 
