@@ -187,7 +187,7 @@ export function SmartBoxArchitecture() {
         </div>
 
         {/* 8 Components Grid & Spotlight Card */}
-        <div className="mt-10 grid lg:grid-cols-12 gap-6 items-start">
+        <div className="mt-10 grid lg:grid-cols-12 gap-6 items-stretch">
           {/* Left Grid (8 Components) */}
           <div className="lg:col-span-7 grid sm:grid-cols-2 gap-2.5">
             {components.map((comp, idx) => {
@@ -233,8 +233,8 @@ export function SmartBoxArchitecture() {
           </div>
 
           {/* Right Spotlight Card */}
-          <div className="lg:col-span-5">
-            <Card className={current.isNovaCore ? "border-primary shadow-xs" : ""}>
+          <div className="lg:col-span-5 flex flex-col h-full">
+            <Card className={`h-full flex flex-col justify-between ${current.isNovaCore ? "border-primary shadow-xs" : ""}`}>
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
@@ -263,12 +263,12 @@ export function SmartBoxArchitecture() {
                 </div>
               </CardHeader>
 
-              <CardContent className="space-y-3.5">
+              <CardContent className="space-y-3 flex-1 flex flex-col justify-between">
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   {current.summary}
                 </p>
 
-                <div className="space-y-1.5 pt-1">
+                <div className="space-y-1.5 py-1">
                   {current.details.map((detail, dIdx) => (
                     <div
                       key={dIdx}
@@ -280,7 +280,7 @@ export function SmartBoxArchitecture() {
                   ))}
                 </div>
 
-                <div className="p-3 rounded-lg bg-muted/40 border border-border flex items-center justify-between text-xs">
+                <div className="p-2.5 rounded-lg bg-muted/40 border border-border flex items-center justify-between text-xs mt-auto">
                   <span className="text-muted-foreground">Reçete İhtiyacı:</span>
                   <span className="font-bold text-foreground">{current.req}</span>
                 </div>

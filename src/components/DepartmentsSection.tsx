@@ -131,9 +131,9 @@ export function DepartmentsSection() {
         </div>
 
         {/* Interactive Layout: Left department buttons, Right active details */}
-        <div className="mt-10 grid lg:grid-cols-12 gap-6 items-start">
+        <div className="mt-10 grid lg:grid-cols-12 gap-6 items-stretch">
           {/* Department List */}
-          <div className="lg:col-span-5 space-y-2">
+          <div className="lg:col-span-5 space-y-2 flex flex-col justify-between">
             {departments.map((dept, idx) => {
               const Icon = dept.icon;
               const isActive = activeDept === idx;
@@ -170,8 +170,8 @@ export function DepartmentsSection() {
           </div>
 
           {/* Department Details Card */}
-          <div className="lg:col-span-7">
-            <Card className="border-border shadow-xs">
+          <div className="lg:col-span-7 flex flex-col h-full">
+            <Card className="border-border shadow-xs h-full flex flex-col justify-between">
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between">
                   <Badge variant="outline" className="text-xs">
