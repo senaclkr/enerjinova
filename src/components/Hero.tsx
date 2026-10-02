@@ -20,7 +20,7 @@ export function Hero() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-12 gap-8 items-center">
           {/* Left: Text & Actions */}
-          <div className="lg:col-span-7 space-y-4 text-center lg:text-left">
+          <div className="lg:col-span-7 space-y-4 text-center lg:text-left animate-fade-in">
             <div className="inline-flex items-center gap-2">
               <Badge variant="secondary" className="px-2.5 py-0.5 text-xs">
                 SmartBox Ekosistemi & B2B Güç Tedariki
@@ -72,8 +72,8 @@ export function Hero() {
           </div>
 
           {/* Right: Pure shadcn Card */}
-          <div className="lg:col-span-5">
-            <Card className="shadow-lg">
+          <div className="lg:col-span-5 animate-fade-in">
+            <Card className="shadow-xs card-hover-effect">
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between">
                   <div className="relative h-10 w-32">

@@ -140,7 +140,7 @@ export function AboutSection() {
           {pillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
-              <Card key={idx} className="bg-background">
+              <Card key={idx} className="bg-background card-hover-effect">
                 <CardHeader className="p-5">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-2">
                     <Icon className="w-5 h-5" />

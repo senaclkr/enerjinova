@@ -146,7 +146,7 @@ export function ProductsSection() {
             return (
               <Card
                 key={product.id}
-                className={`flex flex-col justify-between ${
+                className={`flex flex-col justify-between card-hover-effect ${
                   product.highlight ? "border-primary shadow-sm" : ""
                 }`}
               >

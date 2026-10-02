@@ -31,7 +31,7 @@ export function ContactSection() {
         </div>
 
         {/* Clean, Simple Contact Card - No forms, no copy buttons */}
-        <Card className="max-w-md mx-auto">
+        <Card className="max-w-md mx-auto card-hover-effect">
           <CardHeader className="pb-3">
             <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-1">
               <Mail className="w-5 h-5" />

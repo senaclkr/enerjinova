@@ -160,7 +160,7 @@ export function PricingTermsSection() {
             {terms.map((item, idx) => {
               const TermIcon = item.icon;
               return (
-                <Card key={idx} className="bg-card">
+                <Card key={idx} className="bg-card card-hover-effect">
                   <CardHeader className="p-5">
                     <div className="flex items-center gap-2 text-primary mb-1">
                       <TermIcon className="w-4 h-4" />
