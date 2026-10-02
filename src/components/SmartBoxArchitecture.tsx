@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   Zap,
   Cpu,
@@ -14,9 +15,10 @@ import {
   Layers,
   ArrowRight,
   CheckCircle2,
-  RefreshCw,
   Sparkles,
-  ExternalLink,
+  Power,
+  RefreshCw,
+  Sliders,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -30,39 +32,37 @@ import {
 } from "@/components/ui/card";
 
 export function SmartBoxArchitecture() {
-  const [activeTab, setActiveTab] = useState<"device" | "flow">("device");
+  const [activeTab, setActiveTab] = useState<"showcase" | "flow">("showcase");
   const [selectedComponentId, setSelectedComponentId] = useState<number>(1);
 
-  // 8 zorunlu bileşen (PDF G01-G08 ekosistemi kurumsal dille)
+  // 8 bileşen (PDF'teki G01-G08 ekosistemi, stok sayısı ASLA yazılmıyor, dinamik)
   const components = [
     {
       id: 1,
       name: "Enerji Modülü",
-      producer: "EnerjiNova A.Ş. (Öz Üretim)",
+      producer: "EnerjiNova A.Ş. (Bizim Öz Üretimimiz)",
       isNovaCore: true,
-      role: "Sistemin Kalbi & Güç Kaynağı",
+      role: "Sistemin Kalbi & Güç Ünitesi",
       price: "65 TL",
-      b2bAvailable: true,
       icon: Zap,
       summary:
         "SmartBox'ın çalışmasını sağlayan yüksek verimli güç depolama ve voltaj regülasyon ünitesi.",
       details:
-        "EnerjiNova üretim tesisinde geliştirilen bu modül; stabil akım, optimize edilmiş güç tüketimi ve aşırı yük koruması sağlar. SmartBox'ın diğer 7 bileşenine kesintisiz enerji dağıtımı yapar. Şirketimiz bu modülü aynı zamanda ekosistemdeki diğer kurumsal üreticilere B2B olarak tedarik eder.",
+        "EnerjiNova üretim tesisinde geliştirilen bu modül; kararlı DC akım, akıllı batarya yönetimi ve aşırı yük koruması sağlar. Cihazın şeffaf güç haznesine doğrudan takılır ve diğer 7 bileşenin kesintisiz çalışması için gerekli enerjiyi dağıtır. Aynı zamanda diğer üretici firmalara B2B pazarında doğrudan tedarik edilir.",
       specs: [
         { label: "Birim Satış Fiyatı", value: "65 TL / adet" },
         { label: "Üretim Yetkinliği", value: "EnerjiNova Öz Üretimi" },
-        { label: "Sistemdeki Adet", value: "1 Adet / SmartBox" },
-        { label: "B2B Dağıtım", value: "Aktif Siparişe Açık" },
+        { label: "Tedarik Durumu", value: "Kesintisiz Üretim / Siparişe Açık" },
+        { label: "Entegrasyon", value: "SmartBox Ana Güç Kaynağı" },
       ],
     },
     {
       id: 2,
       name: "İşlemci Modülü",
-      producer: "MikroCore Teknoloji",
+      producer: "MikroCore Teknoloji A.Ş.",
       isNovaCore: false,
       role: "Merkezi Hesaplama & Mantık",
       price: "Entegre Girdi",
-      b2bAvailable: false,
       icon: Cpu,
       summary:
         "Tüm veri işleme ve algoritma kontrolünü yürüten yüksek hızlı mikrokontrolör ünitesi.",
@@ -71,7 +71,8 @@ export function SmartBoxArchitecture() {
       specs: [
         { label: "Tedarik Tipi", value: "B2B Entegrasyon Girdisi" },
         { label: "İşlev", value: "Sistem Mantığı & İşleme" },
-        { label: "Enerji İhtiyacı", value: "Enerji Modülü Beslemeli" },
+        { label: "Güç Beslemesi", value: "Enerji Modülü Hattı" },
+        { label: "Tedarik Modeli", value: "İş Ortaklığı Sözleşmesi" },
       ],
     },
     {
@@ -81,7 +82,6 @@ export function SmartBoxArchitecture() {
       isNovaCore: false,
       role: "Çevresel Algılama & Ölçüm",
       price: "Entegre Girdi",
-      b2bAvailable: false,
       icon: Activity,
       summary:
         "Gerilim, sıcaklık ve harici ortam parametrelerini ölçen hassas algılama grubu.",
@@ -90,7 +90,8 @@ export function SmartBoxArchitecture() {
       specs: [
         { label: "Tedarik Tipi", value: "B2B Entegrasyon Girdisi" },
         { label: "Hassasiyet", value: "Endüstriyel Sınıf Ölçüm" },
-        { label: "Konum", value: "Dahili Sensör Veri Yolu" },
+        { label: "Güç Beslemesi", value: "Enerji Modülü Hattı" },
+        { label: "Tedarik Modeli", value: "Periyodik Sevkiyat" },
       ],
     },
     {
@@ -98,18 +99,18 @@ export function SmartBoxArchitecture() {
       name: "Kasa ve Ambalaj",
       producer: "FormAmbalaj A.Ş.",
       isNovaCore: false,
-      role: "Fiziksel Muhafaza & Koruma",
+      role: "Fiziksel Muhafaza & Şasi",
       price: "Entegre Girdi",
-      b2bAvailable: false,
       icon: Box,
       summary:
         "Tüm bileşenleri dış etkenlerden koruyan dayanıklı şasi ve nakliye ambalajı.",
       details:
-        "Elektromanyetik izolasyon, darbe mukavemeti ve soğutma kanalları sunan kompakt modüler gövde.",
+        "Elektromanyetik izolasyon, darbe mukavemeti ve soğutma kanalları sunan şık endüstriyel gövde. Enerji Modülü için özel kilitlenebilir yuva barındırır.",
       specs: [
         { label: "Tedarik Tipi", value: "B2B Entegrasyon Girdisi" },
         { label: "Standart", value: "Endüstriyel Dayanıklı Kasa" },
-        { label: "Kapasite", value: "8 Bileşen Yuvalı" },
+        { label: "Yuva Mimarisi", value: "8 Bileşen Bölmesi" },
+        { label: "Tedarik Modeli", value: "Parti Bazlı Alım" },
       ],
     },
     {
@@ -119,7 +120,6 @@ export function SmartBoxArchitecture() {
       isNovaCore: false,
       role: "Gömülü İşletim & Bulut Entegrasyonu",
       price: "Entegre Girdi",
-      b2bAvailable: false,
       icon: Code2,
       summary:
         "Cihazın güvenli iletişimini ve uzaktan yönetimini sağlayan lisanslı firmware.",
@@ -129,6 +129,7 @@ export function SmartBoxArchitecture() {
         { label: "Tedarik Tipi", value: "Yazılım Lisans Girdisi" },
         { label: "Protokol", value: "Şifreli IoT Telemetri" },
         { label: "Sürüm", value: "Enterprise Gömülü OS" },
+        { label: "Tedarik Modeli", value: "Dijital Lisanslama" },
       ],
     },
     {
@@ -138,16 +139,16 @@ export function SmartBoxArchitecture() {
       isNovaCore: false,
       role: "Güvenli Dağıtım & Teslimat",
       price: "Entegre Girdi",
-      b2bAvailable: false,
       icon: Truck,
       summary:
         "Bileşen tedarik zincirini ve nihai ürün sevkiyatını güvenceye alan lojistik protokolü.",
       details:
-        "Bileşenlerin montaj hattına eksiksiz ulaşmasını ve tamamlanan SmartBox cihazlarının B2B/B2C alıcılara zamanında teslimini garanti eder.",
+        "Bileşenlerin montaj hattına eksiksiz ulaşmasını ve tamamlanan SmartBox cihazlarının alıcılara zamanında teslimini garanti eder.",
       specs: [
         { label: "Tedarik Tipi", value: "Lojistik Hizmet Girdisi" },
         { label: "Kapsam", value: "Zamanında Sevkiyat & Dağıtım" },
-        { label: "Durum", value: "Planlı Sevkiyat" },
+        { label: "Teslimat", value: "Sözleşmeli Rota" },
+        { label: "Tedarik Modeli", value: "Tur Bazlı Operasyon" },
       ],
     },
     {
@@ -157,7 +158,6 @@ export function SmartBoxArchitecture() {
       isNovaCore: false,
       role: "Kullanım & Verimlilik Analitiği",
       price: "Entegre Girdi",
-      b2bAvailable: false,
       icon: BarChart3,
       summary:
         "Cihazın enerji tüketim ve operasyonel verilerini raporlayan analitik altyapısı.",
@@ -166,7 +166,8 @@ export function SmartBoxArchitecture() {
       specs: [
         { label: "Tedarik Tipi", value: "Analitik Lisans Girdisi" },
         { label: "Kullanım", value: "Verimlilik Optimizasyonu" },
-        { label: "Raporlama", value: "Gerçek Zamanlı Metrikler" },
+        { label: "Metrikler", value: "Gerçek Zamanlı Veri" },
+        { label: "Tedarik Modeli", value: "Kurumsal Abonelik" },
       ],
     },
     {
@@ -176,7 +177,6 @@ export function SmartBoxArchitecture() {
       isNovaCore: false,
       role: "Saha Desteği & Donanım Güvencesi",
       price: "Entegre Girdi",
-      b2bAvailable: false,
       icon: ShieldCheck,
       summary:
         "Nihai SmartBox kullanıcısına kesintisiz servis ve teknik güvence sunan paket.",
@@ -184,57 +184,58 @@ export function SmartBoxArchitecture() {
         "Arıza durumunda hızlı modül değişimi, teknik destek ve sistem güvence garantisini kapsar.",
       specs: [
         { label: "Tedarik Tipi", value: "Hizmet & Destek Paketi" },
-        { label: "Kapsam", value: "Tam Cihaz Garantisi" },
+        { label: "Kapsam", value: "Tam Donanım Güvencesi" },
         { label: "Servis", value: "Kurumsal B2B Destek" },
+        { label: "Tedarik Modeli", value: "Saha Hizmet Sözleşmesi" },
       ],
     },
   ];
 
-  // Mini sade üretim akışı adımları
+  // 4 Adımlı Sade Üretim Akışı (Stok sayısı olmadan dinamik süreç)
   const workflowSteps = [
     {
       step: "01",
       title: "Enerji Modülü İmalatı",
-      badge: "EnerjiNova Öz Üretimi",
+      badge: "EnerjiNova Öz Yetkinliği",
       isNova: true,
       icon: Factory,
       description:
-        "Uzmanlık alanımız olan yüksek verimli Enerji Modülü, tesisimizde kalite kontrol standartlarıyla üretilir.",
-      highlight: "Temel güç kaynağı olarak tüm sisteme hayat verir.",
-      b2bNote: "Aynı zamanda B2B pazarında diğer şirketlere 65 TL'den arz edilir.",
+        "Uzmanlık alanımız olan yüksek verimli Enerji Modülü, tesisimizde en yüksek kalite ve dayanıklılık standartlarında üretilir.",
+      highlight: "Sistemin kesintisiz güç kaynağı olarak tüm cihaza hayat verir.",
+      actionText: "B2B pazarında diğer şirketlere 65 TL'den arz edilir.",
     },
     {
       step: "02",
-      title: "7 Tamamlayıcı Bileşenin Tedariği",
-      badge: "B2B Ekosistem",
+      title: "7 Tamamlayıcı Girdinin Tedariği",
+      badge: "B2B Ekosistemi",
       isNova: false,
       icon: RefreshCw,
       description:
-        "Eksiksiz bir SmartBox oluşturmak için gereken işlemci, sensör, kasa ve yazılım gibi 7 bileşen ortak ağdan temin edilir.",
-      highlight: "8 zorunlu bileşenin tamamı hazır edilmeden montaj başlamaz.",
-      b2bNote: "Karşılıklı sözleşmeler ve kalite kontrolleri ile temin edilir.",
+        "Eksiksiz bir SmartBox oluşturmak için gereken işlemci, sensör, kasa ve yazılım gibi 7 bileşen ekosistemdeki anlaşmalı partnerlerden temin edilir.",
+      highlight: "8 zorunlu bileşenin tamamı hazır edilmeden montaja geçilmez.",
+      actionText: "Resmi B2B sözleşmeleri ve kalite doğrulamasıyla yürütülür.",
     },
     {
       step: "03",
       title: "SmartBox Entegrasyonu & Montaj",
-      badge: "Teknoloji Montajı",
+      badge: "Donanım Montajı",
       isNova: false,
       icon: Layers,
       description:
-        "Enerji Modülümüz merkeze alınarak tüm donanım ve yazılım katmanları tek gövdede birleştirilir.",
-      highlight: "8 bileşenin sinerjisiyle anahtar teslim cihaz ortaya çıkar.",
-      b2bNote: "Kapsamlı fonksiyon ve güvenlik testleri uygulanır.",
+        "Enerji Modülümüz şasinin kalbine yerleştirilerek tüm bileşenler hassas montaj hattında bir araya getirilir.",
+      highlight: "8 bileşenin sinerjisiyle anahtar teslim teknoloji paketi tamamlanır.",
+      actionText: "Donanımsal ve elektriksel güvenlik testlerinden geçirilir.",
     },
     {
       step: "04",
-      title: "Çift Kanallı Pazar Çıkışı",
-      badge: "Dağıtım & Satış",
+      title: "Çift Kanallı Pazar Dağıtımı",
+      badge: "Pazar & Dağıtım",
       isNova: true,
       icon: CheckCircle2,
       description:
-        "Üretilen Enerji Modülleri B2B tedarik ağında; anahtar teslim SmartBox cihazları ise kurumsal nihai pazarda satışa sunulur.",
-      highlight: "Hem bileşen tedarikçisi hem de nihai çözüm üreticisi rolü.",
-      b2bNote: "SmartBox: 850 TL | Enerji Modülü: 65 TL",
+        "Ürettiğimiz Enerji Modülleri B2B üretici ağına iletilirken, montajı biten SmartBox cihazları kurumsal nihai pazara sunulur.",
+      highlight: "Hem kritik bileşen sağlayıcısı hem nihai çözüm üreticisi rolü.",
+      actionText: "Enerji Modülü: 65 TL | SmartBox Cihazı: 850 TL",
     },
   ];
 
@@ -248,28 +249,28 @@ export function SmartBoxArchitecture() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <Badge variant="secondary" className="px-3 py-1 text-xs font-semibold">
-            B2B Üretim & Entegrasyon Modeli
+            Ürün Mimarisi & Üretim Modeli
           </Badge>
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight">
-            SmartBox Nasıl Oluşur?
+            SmartBox Donanımı ve EnerjiNova Kalbi
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
             SmartBox, 8 temel bileşenin bütünleşik entegrasyonuyla çalışır. Sistemin kalbi olan{" "}
             <strong className="text-foreground font-semibold">Enerji Modülü</strong>&apos;nü{" "}
-            <span className="text-primary font-semibold">EnerjiNova</span> olarak biz üretiyor,
-            cihaza güç verirken aynı zamanda B2B pazarında diğer üreticilere tedarik ediyoruz.
+            <span className="text-primary font-semibold">EnerjiNova</span> olarak bizzat üretiyor,
+            cihazlarımızın gücünü sağlarken B2B pazarında diğer şirketlere de kesintisiz tedarik ediyoruz.
           </p>
 
-          {/* View Switcher Controls */}
+          {/* Mode Switcher Tabs */}
           <div className="pt-2 flex justify-center gap-2">
             <Button
-              variant={activeTab === "device" ? "default" : "outline"}
+              variant={activeTab === "showcase" ? "default" : "outline"}
               size="sm"
-              onClick={() => setActiveTab("device")}
+              onClick={() => setActiveTab("showcase")}
               className="text-xs"
             >
-              <Zap className="w-3.5 h-3.5 mr-1.5" />
-              SmartBox Donanım Şeması
+              <Power className="w-3.5 h-3.5 mr-1.5" />
+              SmartBox Donanım Şovu
             </Button>
             <Button
               variant={activeTab === "flow" ? "default" : "outline"}
@@ -278,101 +279,162 @@ export function SmartBoxArchitecture() {
               className="text-xs"
             >
               <Factory className="w-3.5 h-3.5 mr-1.5" />
-              Sade Üretim & Değer Akışı
+              Sade Üretim Akışı
             </Button>
           </div>
         </div>
 
-        {/* TAB 1: SMARTBOX HARDWARE SCHEMATIC VIEW */}
-        {activeTab === "device" && (
+        {/* ================= TAB 1: VISUAL HARDWARE SHOWCASE ================= */}
+        {activeTab === "showcase" && (
           <div className="mt-10 space-y-8">
-            {/* Visual SmartBox Device Frame */}
-            <div className="rounded-xl border border-border bg-card p-5 sm:p-6 shadow-xs">
-              {/* Device Header Bar */}
-              <div className="flex flex-wrap items-center justify-between pb-4 mb-5 border-b border-border gap-2">
+            {/* Visual Showcase Card with Generated 3D Render & Interactive Overlays */}
+            <div className="rounded-2xl border border-border bg-card overflow-hidden shadow-xs">
+              {/* Product Visual Header */}
+              <div className="px-5 py-3.5 bg-muted/40 border-b border-border flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-primary animate-pulse" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
                   <span className="font-mono text-xs font-bold uppercase tracking-wider text-foreground">
-                    SmartBox Entegre Mimarisi
+                    SmartBox IoT Core — Model SB-100
                   </span>
                   <Badge variant="outline" className="text-[10px] py-0 px-2">
-                    8 Bileşenli Sistem
+                    8 Bileşen Entegre
                   </Badge>
                 </div>
-                <div className="text-xs text-muted-foreground">
-                  Güç Kaynağı:{" "}
-                  <span className="text-primary font-semibold">EnerjiNova Modülü (Aktif)</span>
+                <div className="flex items-center gap-3 text-xs">
+                  <span className="text-muted-foreground">Güç Kaynağı:</span>
+                  <Badge variant="default" className="text-[11px] gap-1">
+                    <Zap className="w-3 h-3" /> Enerji Modülü (EnerjiNova İmzası)
+                  </Badge>
                 </div>
               </div>
 
-              {/* Components Slot Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                {components.map((comp) => {
-                  const CompIcon = comp.icon;
-                  const isSelected = selectedComponentId === comp.id;
+              {/* Grid: Image on Left / Top, Hardware Specs on Right */}
+              <div className="grid lg:grid-cols-12 gap-0 items-stretch">
+                {/* 3D Hardware Device Photo Display */}
+                <div className="lg:col-span-7 relative bg-slate-950 p-4 sm:p-6 flex flex-col justify-center items-center overflow-hidden">
+                  <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-slate-800 shadow-2xl">
+                    <Image
+                      src="/smartbox-hardware.jpg"
+                      alt="SmartBox IoT Cihazı ve Dahili Enerji Modülü"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 600px"
+                      className="object-cover"
+                      priority
+                    />
 
-                  return (
-                    <button
-                      key={comp.id}
-                      type="button"
-                      onClick={() => setSelectedComponentId(comp.id)}
-                      className={`text-left p-3.5 rounded-lg border transition-all cursor-pointer relative flex flex-col justify-between ${
-                        comp.isNovaCore
-                          ? isSelected
-                            ? "border-primary bg-primary/10 ring-2 ring-primary"
-                            : "border-primary/60 bg-primary/5 hover:border-primary"
-                          : isSelected
-                            ? "border-foreground bg-muted ring-1 ring-foreground"
-                            : "border-border bg-background hover:bg-muted/40"
-                      }`}
-                    >
-                      {/* Top row */}
-                      <div className="flex items-start justify-between w-full mb-2">
-                        <div
-                          className={`p-2 rounded-md ${
-                            comp.isNovaCore
-                              ? "bg-primary text-primary-foreground"
-                              : "bg-muted text-muted-foreground"
-                          }`}
-                        >
-                          <CompIcon className="w-4 h-4" />
+                    {/* Interactive Glowing Callout on the Power Cell */}
+                    <div className="absolute bottom-3 left-3 right-3 p-3 rounded-lg bg-slate-900/85 backdrop-blur-md border border-primary/40 text-left text-white">
+                      <div className="flex items-center justify-between gap-2 mb-1">
+                        <div className="flex items-center gap-1.5 text-primary text-xs font-bold">
+                          <Zap className="w-3.5 h-3.5" />
+                          <span>ENERJİ MODÜLÜ BÖLMESİ</span>
                         </div>
-                        <span className="font-mono text-[10px] text-muted-foreground">
-                          #{comp.id}
+                        <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800">
+                          B2B Fiyatı: 65 TL
                         </span>
                       </div>
+                      <p className="text-[11px] text-slate-300 leading-tight">
+                        Cihazın şeffaf güç yuvasında yer alan yüksek performanslı Enerji Modülü,{" "}
+                        <strong className="text-white">EnerjiNova</strong> tarafından üretilmekte ve sisteme kesintisiz güç sağlamaktadır.
+                      </p>
+                    </div>
+                  </div>
 
-                      {/* Name & Badge */}
-                      <div>
-                        {comp.isNovaCore && (
-                          <span className="inline-block text-[9px] font-bold text-primary uppercase tracking-wider mb-0.5">
-                            Bizim Üretimimiz
-                          </span>
-                        )}
-                        <h4 className="font-semibold text-xs text-foreground truncate">
-                          {comp.name}
-                        </h4>
-                        <p className="text-[11px] text-muted-foreground truncate mt-0.5">
-                          {comp.role}
-                        </p>
-                      </div>
+                  {/* Device Specs Mini Bar */}
+                  <div className="w-full mt-3 grid grid-cols-3 gap-2 text-center text-slate-300 text-[11px]">
+                    <div className="p-2 rounded bg-slate-900/70 border border-slate-800">
+                      <span className="block text-[10px] text-slate-400 uppercase">Güç Dağıtımı</span>
+                      <span className="font-semibold text-emerald-400">Tam Entegre</span>
+                    </div>
+                    <div className="p-2 rounded bg-slate-900/70 border border-slate-800">
+                      <span className="block text-[10px] text-slate-400 uppercase">Modül Sağlayıcı</span>
+                      <span className="font-semibold text-white">EnerjiNova A.Ş.</span>
+                    </div>
+                    <div className="p-2 rounded bg-slate-900/70 border border-slate-800">
+                      <span className="block text-[10px] text-slate-400 uppercase">Toplam Çözüm</span>
+                      <span className="font-semibold text-white">850 TL / Paket</span>
+                    </div>
+                  </div>
+                </div>
 
-                      {/* Status hint */}
-                      <div className="mt-3 pt-2 border-t border-border/50 text-[10px] font-medium flex items-center justify-between">
-                        <span className={comp.isNovaCore ? "text-primary font-bold" : "text-muted-foreground"}>
-                          {comp.isNovaCore ? "65 TL (B2B Satış)" : "Entegre Girdi"}
-                        </span>
-                        {isSelected && (
-                          <span className="text-[10px] text-primary">Seçili</span>
-                        )}
-                      </div>
-                    </button>
-                  );
-                })}
+                {/* Right: Component Slot Interactive Selector */}
+                <div className="lg:col-span-5 p-4 sm:p-5 flex flex-col justify-between bg-card">
+                  <div>
+                    <div className="flex items-center justify-between pb-3 mb-3 border-b border-border">
+                      <span className="text-xs font-bold text-foreground uppercase tracking-wider">
+                        Sistem Bileşenleri (8 Girdi)
+                      </span>
+                      <span className="text-[11px] text-muted-foreground">
+                        Detay için tıklayın
+                      </span>
+                    </div>
+
+                    <div className="space-y-2">
+                      {components.map((comp) => {
+                        const CompIcon = comp.icon;
+                        const isSelected = selectedComponentId === comp.id;
+
+                        return (
+                          <button
+                            key={comp.id}
+                            type="button"
+                            onClick={() => setSelectedComponentId(comp.id)}
+                            className={`w-full text-left p-2.5 rounded-lg border transition-all cursor-pointer flex items-center justify-between ${
+                              comp.isNovaCore
+                                ? isSelected
+                                  ? "border-primary bg-primary/10 ring-2 ring-primary"
+                                  : "border-primary/50 bg-primary/5 hover:border-primary"
+                                : isSelected
+                                  ? "border-foreground bg-muted ring-1 ring-foreground"
+                                  : "border-border bg-card hover:bg-muted/50"
+                            }`}
+                          >
+                            <div className="flex items-center gap-2.5 min-w-0">
+                              <div
+                                className={`p-1.5 rounded-md shrink-0 ${
+                                  comp.isNovaCore
+                                    ? "bg-primary text-primary-foreground"
+                                    : "bg-muted text-muted-foreground"
+                                }`}
+                              >
+                                <CompIcon className="w-3.5 h-3.5" />
+                              </div>
+                              <div className="truncate text-left">
+                                <div className="text-xs font-semibold text-foreground truncate flex items-center gap-1.5">
+                                  <span>{comp.name}</span>
+                                  {comp.isNovaCore && (
+                                    <Badge variant="default" className="text-[9px] h-3.5 px-1">
+                                      Bizim Üretim
+                                    </Badge>
+                                  )}
+                                </div>
+                                <div className="text-[10px] text-muted-foreground truncate">
+                                  {comp.producer}
+                                </div>
+                              </div>
+                            </div>
+
+                            <span
+                              className={`text-[11px] font-semibold shrink-0 ml-2 ${
+                                comp.isNovaCore ? "text-primary font-bold" : "text-muted-foreground"
+                              }`}
+                            >
+                              {comp.price}
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  <div className="pt-3 mt-3 border-t border-border text-[11px] text-muted-foreground flex items-center justify-between">
+                    <span>SmartBox montajında 8 bileşenin her birinden tam birer adet kullanılır.</span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Selected Component Spotlight Details Card */}
+            {/* Selected Component Detailed Inspector Card */}
             <Card className={selectedComp.isNovaCore ? "border-primary" : "border-border"}>
               <CardHeader className="pb-3">
                 <div className="flex flex-wrap items-center justify-between gap-2">
@@ -420,7 +482,7 @@ export function SmartBoxArchitecture() {
                   {selectedComp.details}
                 </p>
 
-                {/* Specs Grid */}
+                {/* Specs Grid without static stock count */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
                   {selectedComp.specs.map((spec, i) => (
                     <div
@@ -438,13 +500,13 @@ export function SmartBoxArchitecture() {
                 </div>
 
                 {selectedComp.isNovaCore && (
-                  <div className="p-3 rounded-lg bg-primary/5 border border-primary/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                  <div className="p-3.5 rounded-lg bg-primary/5 border border-primary/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
                     <div>
                       <span className="font-bold text-foreground block">
-                        Kendi Üretimimiz Olan Enerji Modülü
+                        Enerji Modülü Satın Alım & Sipariş Talebi
                       </span>
                       <span className="text-muted-foreground">
-                        Hem SmartBox cihazlarımızın enerji kalbidir, hem de B2B pazarında diğer şirketlerin kullanımına sunulur.
+                        SmartBox cihazı üreticisi tüm şirketler, Enerji Modülü ihtiyaçlarını doğrudan EnerjiNova&apos;dan karşılayabilir.
                       </span>
                     </div>
                     <a href="#fiyat-listesi" className="shrink-0">
@@ -459,11 +521,11 @@ export function SmartBoxArchitecture() {
           </div>
         )}
 
-        {/* TAB 2: MINI SADE PRODUCTION & VALUE FLOW */}
+        {/* ================= TAB 2: MINI SADE PRODUCTION WORKFLOW ================= */}
         {activeTab === "flow" && (
           <div className="mt-10 space-y-6">
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {workflowSteps.map((step, idx) => {
+              {workflowSteps.map((step) => {
                 const StepIcon = step.icon;
 
                 return (
@@ -510,7 +572,7 @@ export function SmartBoxArchitecture() {
                     </CardContent>
 
                     <CardFooter className="pt-2 border-t border-border/50 text-[11px] text-muted-foreground">
-                      <span className="italic">{step.b2bNote}</span>
+                      <span className="italic">{step.actionText}</span>
                     </CardFooter>
                   </Card>
                 );
@@ -528,7 +590,7 @@ export function SmartBoxArchitecture() {
                     Sürdürülebilir ve Güvenilir B2B Tedarik Döngüsü
                   </h5>
                   <p className="text-muted-foreground mt-0.5">
-                    EnerjiNova, ürettiği her Enerji Modülü ile ekosistemin kesintisiz çalışmasına güç katar; 8 bileşenin entegrasyonuyla güvenilir nihai çözümler sunar.
+                    EnerjiNova, ürettiği her Enerji Modülü ile ekosistemin kesintisiz çalışmasına güç katar; 8 bileşenin entegrasyonuyla güvenilir anahtar teslim nihai donanım çözümleri sunar.
                   </p>
                 </div>
               </div>
