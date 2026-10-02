@@ -30,33 +30,35 @@ export function ContactSection() {
           </p>
         </div>
 
-        {/* Clean, Simple Contact Card - No forms, no copy buttons */}
-        <Card className="max-w-md mx-auto card-hover-effect">
-          <CardHeader className="pb-3">
-            <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-1">
-              <Mail className="w-5 h-5" />
-            </div>
-            <CardTitle className="text-lg">Resmi E-Posta</CardTitle>
-            <CardDescription>
-              Doğrudan mesaj veya teklif iletmek için tıklayın
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <a
-              href={`mailto:${email}`}
-              className="text-lg sm:text-xl font-bold text-primary hover:underline block break-all"
-            >
-              {email}
-            </a>
+        {/* Clean, Simple Contact Card with Subtle Snake Border */}
+        <div className="snake-border-box card-hover-effect max-w-md mx-auto">
+          <Card className="snake-border-inner border-0">
+            <CardHeader className="pb-3">
+              <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-1">
+                <Mail className="w-5 h-5" />
+              </div>
+              <CardTitle className="text-lg">Resmi E-Posta</CardTitle>
+              <CardDescription>
+                Doğrudan mesaj veya teklif iletmek için tıklayın
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <a
+                href={`mailto:${email}`}
+                className="text-lg sm:text-xl font-bold text-primary hover:underline block break-all"
+              >
+                {email}
+              </a>
 
-            <div className="p-3 rounded-lg bg-muted/50 border border-border text-xs text-muted-foreground flex items-center justify-center gap-2 text-left">
-              <ShieldCheck className="w-4 h-4 text-primary shrink-0" />
-              <span>
-                Siparişler, yetkili kurul ve sözleşme onay süreçleri tamamlandıktan sonra kesinleşir.
-              </span>
-            </div>
-          </CardContent>
-        </Card>
+              <div className="p-3 rounded-lg bg-muted/50 border border-border text-xs text-muted-foreground flex items-center justify-center gap-2 text-left">
+                <ShieldCheck className="w-4 h-4 text-primary shrink-0" />
+                <span>
+                  Siparişler, yetkili kurul ve sözleşme onay süreçleri tamamlandıktan sonra kesinleşir.
+                </span>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </section>
   );
