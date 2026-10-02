@@ -29,114 +29,132 @@ import {
 export function PricingTermsSection() {
   const terms = [
     {
-      title: "Minimum Sipariş",
-      detail: "1 adet",
-      explanation:
-        "Hem SmartBox hem de Enerji Modülü için minimum sipariş sınırı 1 adettir. Ekiplerin bütçelerine göre esnek alım yapılabilir.",
+      title: "Asgari Sipariş",
+      detail: "1 Adet",
+      explanation: "Tüm ürün ve modüllerde minimum kota 1 adettir; küçük bütçeli alımlara uygundur.",
       icon: Layers,
     },
     {
-      title: "Ödeme Koşulları",
-      detail: "Peşin veya Vadeli",
-      explanation:
-        "Peşin veya vadeli ödeme seçenekleri, sipariş miktarı ve iş birliği koşullarına göre karşılıklı mutabakatla değerlendirilir.",
+      title: "Ödeme Opsiyonu",
+      detail: "Peşin / Vadeli",
+      explanation: "Peşin ödemede anlık kasa/stok intikali; vadeli işlemde vade turunda takas uygulanır.",
       icon: Coins,
     },
     {
-      title: "Teslimat Protokolü",
-      detail: "Sözleşmede Belirtilen Turda",
-      explanation:
-        "Onaylanan sözleşmede belirtilen teslim turunda eksiksiz gerçekleştirilir; gecikmesiz operasyon hedeflenir.",
+      title: "Teslimat Turu",
+      detail: "Sözleşmeli Turda",
+      explanation: "Sözleşmede onaylanan teslim turunda eksiksiz teslim; gecikmesiz operasyon güvencesi.",
       icon: Clock,
     },
     {
-      title: "Kalite Standardı",
+      title: "Kalite Güvencesi",
       detail: "Standart Kalite",
-      explanation:
-        "Tüm modül ve bileşenlerimiz standart kalite güvencesiyle test edilerek sevk edilir.",
+      explanation: "Her parti test edilmiş endüstriyel standartta sevk edilir; geri çağırma riski minimize edilir.",
       icon: ShieldCheck,
     },
     {
-      title: "Fiyatlandırma Esnekliği",
-      detail: "Müzakereye Açık",
-      explanation:
-        "Sipariş koşullarına göre görüşülebilir; piyasa koşulları ve süreç içerisindeki gelişmelere bağlı olarak fiyatlar güncellenebilir.",
+      title: "B2B Fiyat Bandı",
+      detail: "50 – 75 ₺ / Adet",
+      explanation: "Enerji Modülü için serbest pazar bandı 50–75 ₺; 4. tur taban referans fiyatı 65 ₺'dir.",
       icon: FileCheck,
     },
     {
-      title: "Sipariş Onay Süreci",
-      detail: "Yetkili Onayı & Sözleşme",
-      explanation:
-        "Yetkili kurullar ve çift taraflı sözleşme imza süreçleri tamamlandıktan sonra kesinleşir.",
+      title: "Onay Protokolü",
+      detail: "Çift Taraflı İmza",
+      explanation: "Alıcı ve satıcı onayından sonra teslim turunda resmiyet kazanır ve stoklara işlenir.",
       icon: AlertTriangle,
     },
   ];
 
   return (
-    <section id="fiyat-listesi" className="py-20 bg-background border-b border-border">
+    <section id="fiyat-listesi" className="py-16 bg-background border-b border-border">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <Badge variant="secondary" className="px-3 py-1 text-xs">
-            Resmi Tarife & Ticari Şartlar
+        <div className="text-center max-w-2xl mx-auto space-y-2.5">
+          <Badge variant="secondary" className="px-3 py-0.5 text-xs">
+            Resmi Tarife & Ticari Protokol
           </Badge>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight">
-            Fiyat Listesi ve Şeffaf Satış Koşulları
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
+            Fiyat Listesi ve Tedarik Standartları
           </h2>
-          <p className="text-base text-muted-foreground leading-relaxed">
-            EnerjiNova A.Ş. ile gerçekleştirilecek tüm B2B tedarik ve ürün satışlarında geçerli
-            olan resmi birim fiyatlar ve sözleşme prensipleri.
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            EnerjiNova A.Ş. ile gerçekleştirilen B2B ve tüketici işlemlerinde geçerli
+            şeffaf birim fiyatlar ve resmi sözleşme ilkeleri.
           </p>
         </div>
 
         {/* Pure shadcn Table */}
-        <div className="mt-12 max-w-4xl mx-auto">
-          <Card>
-            <CardHeader className="border-b border-border">
-              <CardTitle className="text-lg">Resmi Ürün Fiyat Tablosu</CardTitle>
-              <CardDescription>
-                Tüm fiyatlar Türk Lirası (TL) cinsindendir. Minimum sipariş miktarı 1 adettir.
-              </CardDescription>
+        <div className="mt-10 max-w-3xl mx-auto">
+          <Card className="border-border shadow-xs">
+            <CardHeader className="py-4 border-b border-border">
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle className="text-base">Resmi Ürün & Bileşen Tarifesi</CardTitle>
+                  <CardDescription className="text-xs">
+                    Tüm tutarlar Türk Lirası (₺) cinsindendir.
+                  </CardDescription>
+                </div>
+                <Badge variant="outline" className="text-xs">
+                  Para Birimi: TL (₺)
+                </Badge>
+              </div>
             </CardHeader>
             <CardContent className="p-0">
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead className="w-[45%]">Ürün / Hizmet</TableHead>
-                    <TableHead>Kategori</TableHead>
-                    <TableHead>Minimum Sipariş</TableHead>
+                    <TableHead className="w-[45%]">Ürün / Kalem</TableHead>
+                    <TableHead>İşlem Türü</TableHead>
+                    <TableHead>Minimum Kota</TableHead>
                     <TableHead className="text-right">Birim Fiyat</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   <TableRow>
                     <TableCell className="font-semibold text-foreground">
-                      <div>SmartBox</div>
-                      <div className="text-xs text-muted-foreground font-normal">
-                        8 bileşenli nihai teknoloji ürünü
+                      <div>SmartBox (Nihai Cihaz)</div>
+                      <div className="text-[11px] text-muted-foreground font-normal">
+                        8 bileşenin anahtar teslim montajı
                       </div>
                     </TableCell>
                     <TableCell>
-                      <Badge variant="secondary">Nihai Ürün</Badge>
+                      <Badge variant="secondary" className="text-xs">Satış</Badge>
                     </TableCell>
-                    <TableCell>1 Adet</TableCell>
-                    <TableCell className="text-right font-bold text-foreground text-base">
-                      850 TL
+                    <TableCell className="text-xs">1 Adet</TableCell>
+                    <TableCell className="text-right font-bold text-foreground text-sm sm:text-base">
+                      850 ₺
                     </TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell className="font-semibold text-foreground">
-                      <div>Enerji Modülü</div>
-                      <div className="text-xs text-muted-foreground font-normal">
+                      <div>Enerji Modülü (G01)</div>
+                      <div className="text-[11px] text-muted-foreground font-normal">
                         SmartBox üreticilerine doğrudan B2B tedarik
                       </div>
                     </TableCell>
                     <TableCell>
-                      <Badge variant="default">Uzmanlık Ürünü</Badge>
+                      <Badge variant="default" className="text-xs">B2B Arz</Badge>
                     </TableCell>
-                    <TableCell>1 Adet</TableCell>
-                    <TableCell className="text-right font-bold text-primary text-base">
-                      65 TL
+                    <TableCell className="text-xs">1 Adet</TableCell>
+                    <TableCell className="text-right font-bold text-primary text-sm sm:text-base">
+                      65 ₺
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="text-foreground">
+                      <div className="font-medium text-muted-foreground">Acil Dış Tedarik (Referans)</div>
+                      <div className="text-[11px] text-muted-foreground font-normal">
+                        B2B anlaşma sağlanamaması durumundaki tavan maliyet
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <Badge variant="outline" className="text-xs text-destructive border-destructive/30">
+                        Kriz Alımı
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="text-xs">1 Adet</TableCell>
+                    <TableCell className="text-right font-bold text-muted-foreground text-sm">
+                      90 ₺
                     </TableCell>
                   </TableRow>
                 </TableBody>
@@ -146,36 +164,34 @@ export function PricingTermsSection() {
         </div>
 
         {/* 6 Terms Grid */}
-        <div className="mt-14 max-w-5xl mx-auto">
+        <div className="mt-12 max-w-4xl mx-auto">
           <div className="text-center mb-6">
-            <h3 className="text-xl font-bold text-foreground">
-              Sözleşme ve Tedarik Koşulları
+            <h3 className="text-lg font-bold text-foreground">
+              6 Temel Sözleşme İlkesi
             </h3>
-            <p className="text-xs text-muted-foreground mt-1">
-              Kurumsal satın alma protokolü ve ticari ilkelerimiz
+            <p className="text-xs text-muted-foreground mt-0.5">
+              B2B ve ticari operasyonlarda uygulanan bağlayıcı şartlar
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
             {terms.map((item, idx) => {
               const TermIcon = item.icon;
               return (
-                <Card key={idx} className="bg-card card-hover-effect">
-                  <CardHeader className="p-5">
-                    <div className="flex items-center gap-2 text-primary mb-1">
-                      <TermIcon className="w-4 h-4" />
-                      <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                        {item.title}
-                      </span>
-                    </div>
-                    <CardTitle className="text-base font-bold text-foreground">
-                      {item.detail}
-                    </CardTitle>
-                    <CardDescription className="text-xs leading-relaxed mt-2">
-                      {item.explanation}
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
+                <div key={idx} className="p-4 rounded-lg border border-border bg-card card-hover-effect">
+                  <div className="flex items-center gap-2 text-primary mb-1.5">
+                    <TermIcon className="w-4 h-4" />
+                    <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
+                      {item.title}
+                    </span>
+                  </div>
+                  <div className="text-sm font-bold text-foreground">
+                    {item.detail}
+                  </div>
+                  <div className="text-xs text-muted-foreground leading-snug mt-1.5">
+                    {item.explanation}
+                  </div>
+                </div>
               );
             })}
           </div>

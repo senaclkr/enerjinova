@@ -19,68 +19,65 @@ export function ProductsSection() {
   const products = [
     {
       id: "module",
-      category: "Bileşen & B2B Uzmanlığı",
+      category: "Uzmanlık Girdisi • B2B Tedarik",
       name: "Enerji Modülü",
-      subtitle: "EnerjiNova Uzmanlık Ürünü",
+      subtitle: "G01 EnerjiNova Öz Üretimi",
       price: "65",
-      priceUnit: "TL / adet",
+      priceUnit: "₺ / adet",
       icon: Cpu,
       badgeText: "Uzmanlık Ürünü",
       badgeVariant: "default" as const,
       description:
-        "EnerjiNova'nın uzmanlık ürünü olan Enerji Modülü, SmartBox'ın temel bileşenlerinden biridir. Kendi üretimimizle hem SmartBox üretimimizi destekliyor hem de diğer üreticilerin ihtiyaçlarına yönelik B2B tedarik sağlıyoruz.",
+        "SmartBox'ın zorunlu 1 numaralı güç ünitesi. Diğer 7 üretici ortağa doğrudan B2B tedarik arzı.",
       features: [
-        "SmartBox ekosisteminin en kritik güç kaynağı",
-        "Yüksek enerji verimliliği ve standart kalite garantisi",
-        "Minimum sipariş: 1 adet (esnek alım imkanı)",
-        "B2B üreticilerine doğrudan ve planlı tedarik",
-        "Vadeli veya peşin ödeme değerlendirmesi",
+        "1.200 adet/dönem seri üretim kapasitesi",
+        "3.300 adetlik hazır başlangıç stok rezervi",
+        "Minimum 1 adet sipariş & esnek parti hacmi",
+        "Peşin veya vadeli ticari sözleşme seçeneği",
       ],
-      ctaText: "Enerji Modülü Siparişi Ver",
+      ctaText: "Modül Tedariki Talep Et",
       highlight: true,
     },
     {
       id: "smartbox",
-      category: "Bütünleşik Nihai Teknoloji",
+      category: "Bütünleşik Nihai Cihaz",
       name: "SmartBox",
-      subtitle: "Entegre Akıllı Enerji Çözümü",
+      subtitle: "8 Bileşenli Akıllı Teknoloji",
       price: "850",
-      priceUnit: "TL / adet",
+      priceUnit: "₺ / adet",
       icon: Layers,
       badgeText: "Nihai Ürün",
       badgeVariant: "secondary" as const,
       description:
-        "Sekiz temel bileşenin bir araya getirilmesiyle oluşturulan SmartBox, EnerjiNova'nın tamamlanmış ürünüdür. Kendi ürettiğimiz Enerji Modülü'nü diğer bileşenlerle birleştirerek bütünleşik bir teknoloji ürünü sunuyoruz.",
+        "8 girdi bileşeninin tam entegrasyonuyla üretilen, pazara hazır komple teknoloji çözümü.",
       features: [
-        "8 temel bileşenin kusursuz entegrasyonu",
-        "EnerjiNova modülüyle maksimum güç optimizasyonu",
-        "Tak-çalıştır standart endüstriyel kalite",
-        "Doğrudan kullanıma veya dağıtıma hazır",
-        "Sözleşmede belirlenen teslim turunda teslimat",
+        "8 şirketin onaylı girdileriyle montaj",
+        "600 adet/dönem SmartBox montaj kapasitesi",
+        "Standart kalite ve hata toleransı testi",
+        "Resmi teslim turunda eksiksiz teslimat",
       ],
-      ctaText: "SmartBox Siparişi Ver",
+      ctaText: "SmartBox Siparişi Oluştur",
       highlight: false,
     },
     {
       id: "b2b",
-      category: "Kurumsal İş Birliği & Tedarik",
-      name: "B2B Tedarik Hizmeti",
-      subtitle: "Üretici Ortaklık Programı",
-      price: "Özel",
-      priceUnit: "Koşullu Fiyatlandırma",
+      category: "İkili Ortaklık Protokolü",
+      name: "B2B Tedarik Sözleşmesi",
+      subtitle: "Stratejik Parça Değişimi",
+      price: "50–75",
+      priceUnit: "₺ / adet bandı",
       icon: Truck,
-      badgeText: "Stratejik Ortaklık",
+      badgeText: "Sözleşmeli Tedarik",
       badgeVariant: "outline" as const,
       description:
-        "Enerji Modülü ihtiyacı bulunan SmartBox üreticilerine güvenilir ve sürdürülebilir B2B tedarik hizmeti sunuyor, iş ortaklarımızın üretim süreçlerine destek oluyoruz.",
+        "G02-G08 ortaklarıyla karşılıklı parça alışverişi ve kesintisiz hammadde akışı anlaşmaları.",
       features: [
-        "Üretim takvimine göre planlanan zamanında sevkiyat",
-        "Yetkili kurumsal satın alma ve teslim sözleşmesi",
-        "Piyasa koşullarına göre esnek görüşme imkanı",
-        "Toplu alımlarda vadeli ödeme değerlendirmesi",
-        "Sürdürülebilir tedarik güvencesi",
+        "İki taraflı onay ve resmi teslim garantisi",
+        "Acil tedarik (90 ₺) maliyet riskini önleme",
+        "Gecikme cezası ve kalite protokolü koruması",
+        "Karşılıklı alacak/borç mahsuplaşma imkanı",
       ],
-      ctaText: "B2B Tedarik Görüşmesi Başlat",
+      ctaText: "B2B Görüşmesi Başlat",
       highlight: false,
     },
   ];
@@ -91,56 +88,56 @@ export function ProductsSection() {
       : products.filter((p) => p.id === activeTab);
 
   return (
-    <section id="urunler" className="py-20 bg-background border-b border-border">
+    <section id="urunler" className="py-16 bg-background border-b border-border">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <Badge variant="secondary" className="px-3 py-1 text-xs">
-            Ürün ve Hizmet Portföyümüz
+        <div className="text-center max-w-2xl mx-auto space-y-2.5">
+          <Badge variant="secondary" className="px-3 py-0.5 text-xs">
+            Ürün & Hizmet Portföyü
           </Badge>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight">
-            SmartBox & Enerji Modülü Çözümleri
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
+            Enerji Modülü & Entegre SmartBox Çözümleri
           </h2>
-          <p className="text-base text-muted-foreground leading-relaxed">
-            Kendi Enerji Modülümüzü üreterek SmartBox üreticilerine B2B tedarik sağlıyor,
-            sekiz temel bileşeni birleştirerek pazara güçlü SmartBox ürünleri sunuyoruz.
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            Kendi uzmanlık bileşenimizi B2B pazarında arz ederken, 8 girdiyi birleştirerek
+            yüksek performanslı SmartBox nihai cihazları üretiyoruz.
           </p>
 
           {/* Filter Buttons */}
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-2">
+          <div className="pt-3 flex flex-wrap items-center justify-center gap-2">
             <Button
               variant={activeTab === "all" ? "default" : "outline"}
               size="sm"
               onClick={() => setActiveTab("all")}
             >
-              Tüm Ürün & Hizmetler (3)
+              Tümü (3)
             </Button>
             <Button
               variant={activeTab === "module" ? "default" : "outline"}
               size="sm"
               onClick={() => setActiveTab("module")}
             >
-              Enerji Modülü (65 TL)
+              Enerji Modülü (65 ₺)
             </Button>
             <Button
               variant={activeTab === "smartbox" ? "default" : "outline"}
               size="sm"
               onClick={() => setActiveTab("smartbox")}
             >
-              SmartBox (850 TL)
+              SmartBox (850 ₺)
             </Button>
             <Button
               variant={activeTab === "b2b" ? "default" : "outline"}
               size="sm"
               onClick={() => setActiveTab("b2b")}
             >
-              B2B Tedarik
+              B2B Tedarik Ağı
             </Button>
           </div>
         </div>
 
         {/* Product Cards Grid */}
-        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {filteredProducts.map((product) => {
             const Icon = product.icon;
             return (
@@ -150,35 +147,35 @@ export function ProductsSection() {
                   product.highlight ? "border-primary shadow-xs" : ""
                 }`}
               >
-                <CardHeader>
+                <CardHeader className="pb-3">
                   <div className="flex items-start justify-between">
-                    <div className="p-2.5 rounded-lg bg-primary/10 text-primary">
-                      <Icon className="w-6 h-6" />
+                    <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                      <Icon className="w-5 h-5" />
                     </div>
-                    <Badge variant={product.badgeVariant}>
+                    <Badge variant={product.badgeVariant} className="text-xs">
                       {product.badgeText}
                     </Badge>
                   </div>
 
-                  <div className="pt-3">
-                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                  <div className="pt-2">
+                    <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
                       {product.category}
                     </div>
-                    <CardTitle className="text-xl mt-1">
+                    <CardTitle className="text-lg mt-0.5">
                       {product.name}
                     </CardTitle>
-                    <CardDescription>{product.subtitle}</CardDescription>
+                    <CardDescription className="text-xs">{product.subtitle}</CardDescription>
                   </div>
                 </CardHeader>
 
-                <CardContent className="space-y-4">
-                  <div className="p-3.5 rounded-lg border border-border bg-muted/30 flex items-baseline justify-between">
+                <CardContent className="space-y-3.5">
+                  <div className="p-3 rounded-lg border border-border bg-muted/30 flex items-baseline justify-between">
                     <div>
-                      <span className="text-xs text-muted-foreground">
+                      <span className="text-[11px] text-muted-foreground">
                         Birim Fiyat
                       </span>
                       <div className="flex items-baseline gap-1 mt-0.5">
-                        <span className="text-2xl font-bold text-foreground">
+                        <span className="text-xl font-bold text-foreground">
                           {product.price}
                         </span>
                         <span className="text-xs text-muted-foreground">
@@ -186,18 +183,18 @@ export function ProductsSection() {
                         </span>
                       </div>
                     </div>
-                    <Badge variant="outline" className="text-[11px]">
+                    <Badge variant="outline" className="text-[10px]">
                       Min: 1 Adet
                     </Badge>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-xs text-muted-foreground leading-relaxed">
                     {product.description}
                   </p>
 
-                  <div className="space-y-2 pt-2 border-t border-border">
-                    <div className="text-xs font-semibold text-foreground">
-                      Özellikler:
+                  <div className="space-y-1.5 pt-2 border-t border-border">
+                    <div className="text-[11px] font-semibold text-foreground uppercase tracking-wider">
+                      Temel Özellikler
                     </div>
                     {product.features.map((feat, fIdx) => (
                       <div
@@ -215,10 +212,11 @@ export function ProductsSection() {
                   <a href="#iletisim" className="w-full">
                     <Button
                       variant={product.highlight ? "default" : "outline"}
+                      size="sm"
                       className="w-full gap-2 justify-center"
                     >
                       <span>{product.ctaText}</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </Button>
                   </a>
                 </CardFooter>

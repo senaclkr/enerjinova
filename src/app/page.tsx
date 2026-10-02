@@ -2,6 +2,7 @@ import React from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { AboutSection } from "@/components/AboutSection";
+import { DepartmentsSection } from "@/components/DepartmentsSection";
 import { ProductsSection } from "@/components/ProductsSection";
 import { SmartBoxArchitecture } from "@/components/SmartBoxArchitecture";
 import { PricingTermsSection } from "@/components/PricingTermsSection";
@@ -15,6 +16,7 @@ export default function Home() {
       <main className="flex-grow">
         <Hero />
         <AboutSection />
+        <DepartmentsSection />
         <ProductsSection />
         <SmartBoxArchitecture />
         <PricingTermsSection />

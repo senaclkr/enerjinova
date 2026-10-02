@@ -11,7 +11,9 @@ export function Navbar() {
 
   const navLinks = [
     { name: "Hakkımızda", href: "#hakkimizda" },
+    { name: "Departmanlar", href: "#departmanlar" },
     { name: "Ürünler", href: "#urunler" },
+    { name: "Bileşenler", href: "#mimari" },
     { name: "Fiyatlar", href: "#fiyat-listesi" },
     { name: "İletişim", href: "#iletisim" },
   ];
