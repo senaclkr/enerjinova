@@ -127,7 +127,7 @@ export function PricingTermsSection() {
                   </TableRow>
                   <TableRow>
                     <TableCell className="font-semibold text-foreground">
-                      <div>Enerji Modülü (G01)</div>
+                      <div>Enerji Modülü (Öz Üretim)</div>
                       <div className="text-[11px] text-muted-foreground font-normal">
                         SmartBox üreticilerine doğrudan B2B tedarik
                       </div>

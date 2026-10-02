@@ -29,7 +29,7 @@ export function SmartBoxArchitecture() {
   const components = [
     {
       id: 1,
-      code: "G01",
+      code: "B-01",
       name: "Enerji Modülü",
       provider: "EnerjiNova A.Ş. (Öz Üretim)",
       isNovaCore: true,
@@ -39,14 +39,14 @@ export function SmartBoxArchitecture() {
       status: "EnerjiNova Tarafından Üretilir (B2B Satışa Açık)",
       req: "1 Adet / SmartBox",
       details: [
-        "1.200 adet/dönem üretim kapasitesi",
-        "3.300 adetlik güçlü başlangıç rezerv stoku",
+        "Yüksek verimli seri üretim ve kalite testi",
+        "Hazır stok rezervi ve planlı teslimat",
         "Minimum 1 adet sipariş ve vadeli ödeme opsiyonu",
       ],
     },
     {
       id: 2,
-      code: "G02",
+      code: "B-02",
       name: "İşlemci Modülü",
       provider: "MikroCore Teknoloji A.Ş.",
       isNovaCore: false,
@@ -57,13 +57,13 @@ export function SmartBoxArchitecture() {
       req: "1 Adet / SmartBox",
       details: [
         "Yüksek işlem hızı ve düşük güç tüketimi",
-        "G01 Enerji Modülü ile tam sinyal uyumu",
+        "Enerji Modülü ile tam sinyal ve güç uyumu",
         "50–75 ₺ ikili sözleşme aralığı",
       ],
     },
     {
       id: 3,
-      code: "G03",
+      code: "B-03",
       name: "Sensör Kiti",
       provider: "SensoTek A.Ş.",
       isNovaCore: false,
@@ -73,14 +73,14 @@ export function SmartBoxArchitecture() {
       status: "Tedarik Zincirinden Entegre Edilir",
       req: "1 Adet / SmartBox",
       details: [
-        "Standart kalite ve hata toleransı güvencesi",
-        "Geri çağırma riskini önleyen sertifikalı kalibrasyon",
+        "Standart endüstriyel kalite ve kalibrasyon",
+        "Geri çağırma riskini önleyen sertifikalı ölçüm",
         "Sürekli telemetri veri beslemesi",
       ],
     },
     {
       id: 4,
-      code: "G04",
+      code: "B-04",
       name: "Kasa ve Ambalaj",
       provider: "FormAmbalaj A.Ş.",
       isNovaCore: false,
@@ -92,12 +92,12 @@ export function SmartBoxArchitecture() {
       details: [
         "Hafif ve darbelere mukavim dış şasi",
         "Sürdürülebilir ve geri dönüştürülebilir malzeme",
-        "IP koruma sınıfına uygun sızdırmazlık",
+        "Endüstriyel IP sızdırmazlık standardı",
       ],
     },
     {
       id: 5,
-      code: "G05",
+      code: "B-05",
       name: "Yazılım Lisansı",
       provider: "BulutOS Yazılım A.Ş.",
       isNovaCore: false,
@@ -114,7 +114,7 @@ export function SmartBoxArchitecture() {
     },
     {
       id: 6,
-      code: "G06",
+      code: "B-06",
       name: "Lojistik Tokenı",
       provider: "HızlıRota Lojistik A.Ş.",
       isNovaCore: false,
@@ -124,14 +124,14 @@ export function SmartBoxArchitecture() {
       status: "Tedarik Zincirinden Entegre Edilir",
       req: "1 Adet / SmartBox",
       details: [
-        "Gecikme cezalarını önleyen öncelikli sevkiyat",
-        "Soğuk zincir ve hassas elektronik taşıma standardı",
+        "Gecikmesiz öncelikli kurumsal sevkiyat",
+        "Hassas elektronik komponent taşıma standardı",
         "Rotasyonel depo ve dağıtım güvencesi",
       ],
     },
     {
       id: 7,
-      code: "G07",
+      code: "B-07",
       name: "Müşteri Analitiği Lisansı",
       provider: "VeriPusula Analitik A.Ş.",
       isNovaCore: false,
@@ -141,14 +141,14 @@ export function SmartBoxArchitecture() {
       status: "Tedarik Zincirinden Entegre Edilir",
       req: "1 Adet / SmartBox",
       details: [
-        "Kullanıcı davranış ve tüketim eğilim analitiği",
+        "Kullanıcı tüketim eğilim ve verimlilik analitiği",
         "Öngörücü bakım ve erken uyarı raporlaması",
-        "Etik veri saklama ve rıza protokollerine uyum",
+        "Etik veri saklama ve rıza protokollerine tam uyum",
       ],
     },
     {
       id: 8,
-      code: "G08",
+      code: "B-08",
       name: "Garanti Hizmet Paketi",
       provider: "GüvencePlus Hizmetleri A.Ş.",
       isNovaCore: false,
@@ -158,9 +158,9 @@ export function SmartBoxArchitecture() {
       status: "Tedarik Zincirinden Entegre Edilir",
       req: "1 Adet / SmartBox",
       details: [
-        "Geri çağırma ve parça hatası riskine karşı tam koruma",
-        "Müşteri memnuniyetini garanti eden servis ağı",
-        "Şeffaf sözleşme ve tazminat güvencesi",
+        "Parça ve montaj hatalarına karşı tam teminat",
+        "Müşteri memnuniyetini garanti eden servis protokolü",
+        "Şeffaf sözleşme ve teknik destek güvencesi",
       ],
     },
   ];
@@ -219,7 +219,7 @@ export function SmartBoxArchitecture() {
                       </Badge>
                       {comp.isNovaCore && (
                         <Badge variant="default" className="text-[9px] h-4 px-1.5">
-                          Bizim Üretimimiz
+                          Öz Üretim
                         </Badge>
                       )}
                     </div>

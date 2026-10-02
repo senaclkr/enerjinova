@@ -51,14 +51,6 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#departmanlar"
-                  className="hover:text-foreground transition-colors"
-                >
-                  Departmanlar & Yönetişim
-                </a>
-              </li>
-              <li>
-                <a
                   href="#urunler"
                   className="hover:text-foreground transition-colors"
                 >

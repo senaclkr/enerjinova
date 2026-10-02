@@ -41,7 +41,7 @@ export function AboutSection() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-2.5">
           <Badge variant="secondary" className="px-3 py-0.5 text-xs">
-            G01 • Kurumsal Profil & Vizyon
+            Kurumsal Profil & Strateji
           </Badge>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
             Tedarikte Güven, Üretimde Mühendislik Gücü
@@ -80,7 +80,7 @@ export function AboutSection() {
                       B2B Enerji Modülü Tedariki (Uzmanlık Ürünü)
                     </h4>
                     <p className="text-xs text-muted-foreground mt-0.5">
-                      Ekosistemdeki diğer SmartBox üreticilerine dönemsel 1.200 adet kapasiteyle 65 TL taban fiyatlı modül arzı.
+                      Ekosistemdeki diğer SmartBox üreticilerine doğrudan, seri üretim hatlarımızdan 65 TL taban fiyatlı modül arzı.
                     </p>
                   </div>
                 </div>
@@ -94,7 +94,7 @@ export function AboutSection() {
                       Eksiksiz SmartBox Montajı & Pazarı
                     </h4>
                     <p className="text-xs text-muted-foreground mt-0.5">
-                      7 partnerden tedarik edilen girdilerle dönem başına 600 adede kadar 850 TL standart montajlı satış.
+                      Partner ağından tedarik edilen girdilerle bütünleşik entegrasyona sahip 850 TL standart montajlı nihai satış.
                     </p>
                   </div>
                 </div>
@@ -108,7 +108,7 @@ export function AboutSection() {
                       Minimum 1 Adet Sipariş & Esnek Ödeme
                     </h4>
                     <p className="text-xs text-muted-foreground mt-0.5">
-                      Peşin veya vadeli sözleşmeler ile her ölçekteki üretici ortağa eşit erişilebilirlik.
+                      Peşin veya vadeli sözleşmeler ile her ölçekteki üretici ortağa eşit ve esnek erişilebilirlik.
                     </p>
                   </div>
                 </div>
@@ -116,8 +116,8 @@ export function AboutSection() {
             </div>
 
             <div className="mt-5 pt-4 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
-              <span>Kurumsal Kod: <strong className="text-foreground">G01</strong></span>
-              <span>Açılış Rezervi: <strong className="text-foreground">3.300 Modül</strong></span>
+              <span>Üretim Standardı: <strong className="text-foreground">Endüstriyel Kalite Güvencesi</strong></span>
+              <span>Tedarik Modeli: <strong className="text-foreground">B2B & Nihai Cihaz</strong></span>
             </div>
           </div>
 
