@@ -143,12 +143,11 @@ export function ProductsSection() {
         <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProducts.map((product) => {
             const Icon = product.icon;
-            const CardComponent = (
+            return (
               <Card
-                className={`flex flex-col justify-between h-full ${
-                  product.highlight
-                    ? "snake-border-inner border-0"
-                    : "card-hover-effect"
+                key={product.id}
+                className={`flex flex-col justify-between card-hover-effect ${
+                  product.highlight ? "border-primary shadow-xs" : ""
                 }`}
               >
                 <CardHeader>
@@ -224,16 +223,6 @@ export function ProductsSection() {
                   </a>
                 </CardFooter>
               </Card>
-            );
-
-            return product.highlight ? (
-              <div key={product.id} className="snake-border-box card-hover-effect flex flex-col">
-                {CardComponent}
-              </div>
-            ) : (
-              <div key={product.id} className="flex flex-col">
-                {CardComponent}
-              </div>
             );
           })}
         </div>

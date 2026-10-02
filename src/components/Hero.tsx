@@ -60,7 +60,7 @@ export function Hero() {
             </a>
           </div>
 
-          {/* 3 Minimalist Corporate Highlight Cards with Snake Border on Core Card */}
+          {/* 3 Minimalist Corporate Highlight Cards */}
           <div className="pt-8 grid sm:grid-cols-3 gap-4 text-left">
             <div className="p-4 rounded-lg border border-border bg-card/60 backdrop-blur-xs card-hover-effect">
               <div className="flex items-center gap-2 text-primary font-semibold text-xs mb-1.5">
@@ -72,17 +72,14 @@ export function Hero() {
               </p>
             </div>
 
-            {/* Snake Border Card (Highlighted) */}
-            <div className="snake-border-box card-hover-effect">
-              <div className="snake-border-inner p-4">
-                <div className="flex items-center gap-2 text-primary font-semibold text-xs mb-1.5">
-                  <Layers className="w-4 h-4" />
-                  <span>SmartBox Çözümü</span>
-                </div>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  8 temel bileşenin bütünleşik entegrasyonuyla geliştirilen anahtar teslim teknoloji paketi.
-                </p>
+            <div className="p-4 rounded-lg border border-border bg-card/60 backdrop-blur-xs card-hover-effect">
+              <div className="flex items-center gap-2 text-primary font-semibold text-xs mb-1.5">
+                <Layers className="w-4 h-4" />
+                <span>SmartBox Çözümü</span>
               </div>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                8 temel bileşenin bütünleşik entegrasyonuyla geliştirilen anahtar teslim teknoloji paketi.
+              </p>
             </div>
 
             <div className="p-4 rounded-lg border border-border bg-card/60 backdrop-blur-xs card-hover-effect">
