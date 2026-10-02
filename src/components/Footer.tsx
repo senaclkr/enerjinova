@@ -2,7 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
-import { Mail, ShieldCheck, Heart, ArrowUp } from "lucide-react";
+import { Mail, ShieldCheck, ArrowUp } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
 
 export function Footer() {
   const scrollToTop = () => {
@@ -10,12 +12,12 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-slate-950 text-slate-400 border-t border-slate-800 text-xs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <footer className="bg-muted/40 border-t border-border text-xs text-muted-foreground">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
           {/* Brand Info */}
-          <div className="md:col-span-5 space-y-4">
-            <div className="relative h-12 w-40">
+          <div className="md:col-span-5 space-y-3">
+            <div className="relative h-10 w-36">
               <Image
                 src="/logo.png"
                 alt="EnerjiNova A.Ş."
@@ -23,26 +25,26 @@ export function Footer() {
                 className="object-contain object-left"
               />
             </div>
-            <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
+            <p className="leading-relaxed max-w-sm">
               Geleceğin enerjisini üretirken, geleceği tüketmeyen bir dünya inşa etmek.
               SmartBox ekosisteminde uzmanlaştığımız Enerji Modülü üretimi ile öncü teknoloji şirketi.
             </p>
-            <div className="flex items-center gap-2 text-emerald-400 text-xs">
-              <ShieldCheck className="w-4 h-4" />
+            <div className="flex items-center gap-2 text-foreground font-medium">
+              <ShieldCheck className="w-4 h-4 text-primary" />
               <span>Standart Kalite & Sözleşmeli Teslimat</span>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="md:col-span-3 space-y-3">
-            <h5 className="font-bold text-white text-sm uppercase tracking-wider">
+          <div className="md:col-span-3 space-y-2.5">
+            <div className="font-semibold text-foreground text-sm">
               Hızlı Erişim
-            </h5>
-            <ul className="space-y-2">
+            </div>
+            <ul className="space-y-1.5">
               <li>
                 <a
                   href="#hakkimizda"
-                  className="hover:text-emerald-400 transition-colors"
+                  className="hover:text-foreground transition-colors"
                 >
                   Kurumsal & Misyon
                 </a>
@@ -50,7 +52,7 @@ export function Footer() {
               <li>
                 <a
                   href="#urunler"
-                  className="hover:text-emerald-400 transition-colors"
+                  className="hover:text-foreground transition-colors"
                 >
                   Enerji Modülü & SmartBox
                 </a>
@@ -58,7 +60,7 @@ export function Footer() {
               <li>
                 <a
                   href="#mimari"
-                  className="hover:text-emerald-400 transition-colors"
+                  className="hover:text-foreground transition-colors"
                 >
                   8 Bileşen Mimarisi
                 </a>
@@ -66,7 +68,7 @@ export function Footer() {
               <li>
                 <a
                   href="#fiyat-listesi"
-                  className="hover:text-emerald-400 transition-colors"
+                  className="hover:text-foreground transition-colors"
                 >
                   Fiyat Listesi & Koşullar
                 </a>
@@ -74,7 +76,7 @@ export function Footer() {
               <li>
                 <a
                   href="#hesaplayici"
-                  className="hover:text-emerald-400 transition-colors"
+                  className="hover:text-foreground transition-colors"
                 >
                   Sipariş Hesaplayıcı
                 </a>
@@ -82,44 +84,45 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact / Simulation disclaimer */}
+          {/* Contact */}
           <div className="md:col-span-4 space-y-3">
-            <h5 className="font-bold text-white text-sm uppercase tracking-wider">
+            <div className="font-semibold text-foreground text-sm">
               İletişim & Onay
-            </h5>
-            <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
-              <div className="flex items-center gap-2 text-slate-300">
-                <Mail className="w-4 h-4 text-emerald-400" />
+            </div>
+            <div className="p-3.5 rounded-lg border border-border bg-card space-y-1.5">
+              <div className="flex items-center gap-2 text-foreground font-medium">
+                <Mail className="w-4 h-4 text-primary" />
                 <a
                   href="mailto:enerjinova.iletisim@gmail.com"
-                  className="text-amber-300 font-semibold hover:underline"
+                  className="hover:underline text-primary"
                 >
                   enerjinova.iletisim@gmail.com
                 </a>
               </div>
-              <p className="text-[11px] text-slate-400">
-                Sipariş onayları gerekli taraf ve ders yürütücüsü onayları tamamlandıktan sonra yürürlüğe girer.
+              <p className="text-[11px] text-muted-foreground">
+                Sipariş onayları ders yürütücüsü ve taraf onayları ile kesinleşir.
               </p>
             </div>
 
-            <button
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={scrollToTop}
-              className="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-white transition-colors cursor-pointer pt-2"
+              className="gap-1 text-xs text-muted-foreground hover:text-foreground px-0"
             >
-              <span>Yukarı Çık</span>
+              <span>Yukarı Dön</span>
               <ArrowUp className="w-3.5 h-3.5" />
-            </button>
+            </Button>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500">
+        <Separator className="my-8" />
+
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-muted-foreground">
           <div>
             © {new Date().getFullYear()} EnerjiNova A.Ş. — Tüm Hakları Saklıdır.
           </div>
-          <div className="text-[11px] text-slate-500">
-            Ders Simülasyonu Kapsamında Hazırlanmıştır
-          </div>
+          <div>Ders Simülasyonu Kapsamında Hazırlanmıştır</div>
         </div>
       </div>
     </footer>
