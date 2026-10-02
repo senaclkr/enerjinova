@@ -62,9 +62,9 @@ export function Hero() {
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <a href="#hesaplayici" className="w-full sm:w-auto">
                 <Button
-                  variant="solar"
+                  variant="default"
                   size="lg"
-                  className="w-full sm:w-auto gap-2 group text-slate-950 font-bold"
+                  className="w-full sm:w-auto gap-2 group font-bold bg-amber-400 text-slate-950 hover:bg-amber-500"
                 >
                   <span>Sipariş & Teklif Hesapla</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -116,7 +116,7 @@ export function Hero() {
                       />
                     </div>
                   </div>
-                  <Badge variant="solar" className="text-[11px] font-bold">
+                  <Badge variant="secondary" className="text-[11px] font-bold bg-amber-400/20 text-amber-300 border-amber-400/30">
                     Resmi B2B Katalog
                   </Badge>
                 </div>
@@ -203,8 +203,8 @@ export function Hero() {
                 <div className="mt-4">
                   <a href="#hesaplayici">
                     <Button
-                      variant="emerald"
-                      className="w-full text-xs font-semibold py-2.5 justify-center border border-emerald-400/30"
+                      variant="default"
+                      className="w-full text-xs font-semibold py-2.5 justify-center"
                     >
                       Canlı Teklif Simülatörünü Aç
                     </Button>

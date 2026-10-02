@@ -32,7 +32,7 @@ export function ProductsSection() {
       icon: Cpu,
       accentColor: "border-emerald-500/40 bg-emerald-50/50",
       badgeText: "Uzmanlık Ürünü",
-      badgeVariant: "emerald" as const,
+      badgeVariant: "default" as const,
       description:
         "EnerjiNova'nın uzmanlık ürünü olan Enerji Modülü, SmartBox'ın temel bileşenlerinden biridir. Kendi üretimimizle hem SmartBox üretimimizi destekliyor hem de diğer üreticilerin ihtiyaçlarına yönelik B2B tedarik sağlıyoruz.",
       features: [
@@ -55,7 +55,7 @@ export function ProductsSection() {
       icon: Layers,
       accentColor: "border-amber-500/40 bg-amber-50/40",
       badgeText: "Nihai Ürün",
-      badgeVariant: "solar" as const,
+      badgeVariant: "secondary" as const,
       description:
         "Sekiz temel bileşenin bir araya getirilmesiyle oluşturulan SmartBox, EnerjiNova'nın tamamlanmış ürünüdür. Kendi ürettiğimiz Enerji Modülü'nü diğer bileşenlerle birleştirerek bütünleşik bir teknoloji ürünü sunuyoruz.",
       features: [
@@ -78,7 +78,7 @@ export function ProductsSection() {
       icon: Truck,
       accentColor: "border-teal-500/40 bg-teal-50/40",
       badgeText: "Stratejik Ortaklık",
-      badgeVariant: "secondary" as const,
+      badgeVariant: "outline" as const,
       description:
         "Enerji Modülü ihtiyacı bulunan SmartBox üreticilerine güvenilir ve sürdürülebilir B2B tedarik hizmeti sunuyor, iş ortaklarımızın üretim süreçlerine destek oluyoruz.",
       features: [
@@ -103,7 +103,7 @@ export function ProductsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <Badge variant="emerald" className="px-3.5 py-1 text-xs">
+          <Badge variant="secondary" className="px-3.5 py-1 text-xs">
             Ürün ve Hizmet Portföyümüz
           </Badge>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -249,7 +249,7 @@ export function ProductsSection() {
                 <div className="mt-8 pt-4">
                   <a href="#hesaplayici">
                     <Button
-                      variant={product.highlight ? "emerald" : "outline"}
+                      variant={product.highlight ? "default" : "outline"}
                       className="w-full gap-2 justify-center"
                     >
                       <span>{product.ctaText}</span>

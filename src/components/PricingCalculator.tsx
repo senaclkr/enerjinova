@@ -51,7 +51,7 @@ export function PricingCalculator() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <Badge variant="emerald" className="px-3.5 py-1 text-xs">
+          <Badge variant="secondary" className="px-3.5 py-1 text-xs">
             İnteraktif Simülasyon Aracı
           </Badge>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -119,7 +119,7 @@ export function PricingCalculator() {
                 <div>
                   <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
                     <span>Enerji Modülü</span>
-                    <Badge variant="emerald" className="text-[10px] py-0 px-2">
+                    <Badge variant="default" className="text-[10px] py-0 px-2">
                       B2B Uzmanlık
                     </Badge>
                   </div>
@@ -232,7 +232,7 @@ export function PricingCalculator() {
               <span className="text-xs font-bold uppercase tracking-wider text-emerald-300">
                 Canlı Teklif Özeti
               </span>
-              <Badge variant="solar" className="text-xs">
+              <Badge variant="secondary" className="text-xs bg-amber-400/20 text-amber-300 border-amber-400/30">
                 Resmi Simülasyon Kuru
               </Badge>
             </div>
@@ -296,8 +296,8 @@ export function PricingCalculator() {
               {!isSubmitted ? (
                 <Button
                   onClick={handleCalculateSubmit}
-                  variant="solar"
-                  className="w-full text-slate-950 font-bold gap-2 py-3 justify-center shadow-lg"
+                  variant="default"
+                  className="w-full font-bold gap-2 py-3 justify-center shadow-lg bg-amber-400 text-slate-950 hover:bg-amber-500"
                 >
                   <Send className="w-4 h-4" />
                   <span>Bu Teklif Taslağını Onayla & Gönder</span>

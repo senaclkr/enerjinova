@@ -65,7 +65,7 @@ export function PricingTermsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <Badge variant="emerald" className="px-3.5 py-1 text-xs">
+          <Badge variant="secondary" className="px-3.5 py-1 text-xs">
             Resmi Tarife & Ticari Şartlar
           </Badge>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">

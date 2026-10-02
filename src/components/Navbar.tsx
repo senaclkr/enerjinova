@@ -72,9 +72,9 @@ export function Navbar() {
           <div className="hidden sm:flex items-center gap-3">
             <a href="#hesaplayici">
               <Button
-                variant="emerald"
+                variant="default"
                 size="sm"
-                className="gap-2 shadow-emerald-900/10"
+                className="gap-2"
               >
                 <Zap className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
                 <span>Teklif / Sipariş</span>
@@ -115,7 +115,7 @@ export function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className="w-full"
                 >
-                  <Button variant="emerald" className="w-full gap-2 justify-center">
+                  <Button variant="default" className="w-full gap-2 justify-center">
                     <Zap className="w-4 h-4 text-amber-300 fill-amber-300" />
                     <span>Teklif ve Sipariş Hesapla</span>
                   </Button>

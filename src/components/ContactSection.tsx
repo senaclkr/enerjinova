@@ -82,7 +82,7 @@ export function ContactSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <Badge variant="solar" className="px-3.5 py-1 text-xs">
+          <Badge variant="secondary" className="px-3.5 py-1 text-xs">
             Bize Ulaşın & Sipariş İletin
           </Badge>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -168,7 +168,7 @@ export function ContactSection() {
                       formData.fullName
                     )}%0AMesaj:%20${encodeURIComponent(formData.message)}`}
                   >
-                    <Button variant="emerald" className="gap-2">
+                    <Button variant="default" className="gap-2">
                       <Send className="w-4 h-4" />
                       <span>E-Posta Programında Aç</span>
                     </Button>
@@ -293,7 +293,7 @@ export function ContactSection() {
                 <div className="pt-2">
                   <Button
                     type="submit"
-                    variant="emerald"
+                    variant="default"
                     className="w-full gap-2 justify-center py-3 text-sm font-bold shadow-md"
                   >
                     <Send className="w-4 h-4" />

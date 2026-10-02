@@ -109,7 +109,7 @@ export function SmartBoxArchitecture() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <Badge variant="solar" className="px-3.5 py-1 text-xs">
+          <Badge variant="secondary" className="px-3.5 py-1 text-xs">
             Sekiz Bileşenli Ekosistem
           </Badge>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -197,7 +197,7 @@ export function SmartBoxArchitecture() {
                   Bileşen İncelemesi #{current.id}
                 </span>
                 {current.isNovaCore ? (
-                  <Badge variant="solar" className="text-xs font-bold">
+                  <Badge variant="secondary" className="text-xs font-bold bg-amber-400/20 text-amber-300 border-amber-400/30">
                     EnerjiNova Öz Üretimi
                   </Badge>
                 ) : (
