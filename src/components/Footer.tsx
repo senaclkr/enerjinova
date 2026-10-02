@@ -75,10 +75,10 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#hesaplayici"
+                  href="#iletisim"
                   className="hover:text-foreground transition-colors"
                 >
-                  Sipariş Hesaplayıcı
+                  İletişim
                 </a>
               </li>
             </ul>

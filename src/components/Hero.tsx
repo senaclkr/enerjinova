@@ -40,16 +40,16 @@ export function Hero() {
             </p>
 
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
-              <a href="#hesaplayici" className="w-full sm:w-auto">
+              <a href="#fiyat-listesi" className="w-full sm:w-auto">
                 <Button size="lg" className="w-full sm:w-auto gap-2">
-                  <span>Sipariş & Teklif Hesapla</span>
+                  <span>Fiyat ve Koşullar</span>
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </a>
 
-              <a href="#urunler" className="w-full sm:w-auto">
+              <a href="#iletisim" className="w-full sm:w-auto">
                 <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                  Ürün ve Fiyatları İncele
+                  İletişime Geç
                 </Button>
               </a>
             </div>
@@ -143,9 +143,9 @@ export function Hero() {
               </CardContent>
 
               <CardFooter className="pt-2 flex flex-col gap-2">
-                <a href="#hesaplayici" className="w-full">
+                <a href="#fiyat-listesi" className="w-full">
                   <Button variant="default" className="w-full">
-                    Sipariş Hesaplayıcıyı Aç
+                    Fiyat Listesini İncele
                   </Button>
                 </a>
               </CardFooter>

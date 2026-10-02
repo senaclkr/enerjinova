@@ -223,9 +223,9 @@ export function SmartBoxArchitecture() {
               </CardContent>
 
               <CardFooter className="pt-2">
-                <a href="#hesaplayici" className="w-full">
+                <a href="#fiyat-listesi" className="w-full">
                   <Button variant="default" className="w-full">
-                    Sipariş Oluştur
+                    Fiyat ve Tedarik Detayı
                   </Button>
                 </a>
               </CardFooter>

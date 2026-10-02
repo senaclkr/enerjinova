@@ -212,7 +212,7 @@ export function ProductsSection() {
                 </CardContent>
 
                 <CardFooter className="pt-2">
-                  <a href="#hesaplayici" className="w-full">
+                  <a href="#iletisim" className="w-full">
                     <Button
                       variant={product.highlight ? "default" : "outline"}
                       className="w-full gap-2 justify-center"
