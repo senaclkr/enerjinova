@@ -197,10 +197,10 @@ export function SmartBoxArchitecture() {
                 <button
                   key={comp.id}
                   onClick={() => setSelectedComponent(idx)}
-                  className={`text-left p-3 rounded-lg border transition-all cursor-pointer flex items-center gap-3 ${
+                  className={`text-left p-3 rounded-lg border transition-all duration-200 cursor-pointer flex items-center gap-3 hover:-translate-y-0.5 active:scale-[0.99] ${
                     isSelected
-                      ? "border-primary bg-primary/5 ring-1 ring-primary"
-                      : "border-border bg-card hover:bg-muted/50"
+                      ? "border-primary bg-primary/5 ring-1 ring-primary shadow-xs"
+                      : "border-border bg-card hover:bg-muted/50 hover:shadow-xs"
                   }`}
                 >
                   <div
