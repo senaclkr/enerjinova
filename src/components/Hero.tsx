@@ -16,39 +16,39 @@ import {
 
 export function Hero() {
   return (
-    <section className="relative pt-28 pb-16 md:pt-32 md:pb-20 border-b border-border bg-background">
+    <section className="relative pt-8 pb-12 md:pt-12 md:pb-14 border-b border-border bg-background">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
+        <div className="grid lg:grid-cols-12 gap-8 items-center">
           {/* Left: Text & Actions */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div className="lg:col-span-7 space-y-4 text-center lg:text-left">
             <div className="inline-flex items-center gap-2">
-              <Badge variant="secondary" className="px-3 py-1 text-xs">
+              <Badge variant="secondary" className="px-2.5 py-0.5 text-xs">
                 SmartBox Ekosistemi & B2B Güç Tedariki
               </Badge>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.15]">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-snug">
               Geleceğin enerjisini üretirken,{" "}
               <span className="text-primary">geleceği tüketmeyen</span> bir dünya.
             </h1>
 
-            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-sm text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed">
               <strong className="text-foreground">EnerjiNova A.Ş.</strong>,
               SmartBox ekosisteminin kalbi olan Enerji Modülü alanındaki
               uzmanlığıyla SmartBox üreticilerine güvenilir B2B tedarik sunarken;
               8 bileşeni bir araya getirerek entegre SmartBox çözümleri üretir.
             </p>
 
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
+            <div className="pt-1 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
               <a href="#fiyat-listesi" className="w-full sm:w-auto">
-                <Button size="lg" className="w-full sm:w-auto gap-2">
+                <Button className="w-full sm:w-auto gap-2">
                   <span>Fiyat ve Koşullar</span>
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </a>
 
               <a href="#iletisim" className="w-full sm:w-auto">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                <Button variant="outline" className="w-full sm:w-auto">
                   İletişime Geç
                 </Button>
               </a>
