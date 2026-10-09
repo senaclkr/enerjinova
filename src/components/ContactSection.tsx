@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import {
   Mail,
-  ShieldCheck,
   Send,
   CheckCircle2,
   Copy,
@@ -15,7 +14,6 @@ import {
   Package,
   FileText,
   Clock,
-  Sparkles,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -136,7 +134,7 @@ ${fullName || company || "Alıcı / Müşteri"}`;
 
   return (
     <section id="iletisim" className="py-14 sm:py-20 bg-background border-t border-border">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 space-y-8 sm:space-y-10">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-2.5 sm:space-y-3">
           <Badge variant="secondary" className="px-3 py-1 text-xs">
@@ -187,277 +185,228 @@ ${fullName || company || "Alıcı / Müşteri"}`;
           </a>
         </div>
 
-        {/* Form and Contact Info Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-          {/* Main Form (7 cols on desktop) */}
-          <div className="lg:col-span-7">
-            <Card className="border-border shadow-xs overflow-hidden">
-              <CardHeader className="pb-4 px-4 sm:px-6">
-                <div className="flex items-center gap-2 text-primary text-xs font-semibold uppercase tracking-wider">
-                  <FileText className="w-4 h-4 shrink-0" />
-                  <span>Resmi Talep Formu</span>
-                </div>
-                <CardTitle className="text-xl sm:text-2xl mt-1">
-                  Ürün & Tedarik Talebi Oluşturun
-                </CardTitle>
-                <CardDescription className="text-xs sm:text-sm">
-                  Formu doldurduğunuzda bilgileriniz düzenlenerek resmi e-posta adresimize ({OFFICIAL_EMAIL}) iletilmek üzere hazırlanır.
-                </CardDescription>
-              </CardHeader>
+        {/* Full-width Form Card */}
+        <div className="w-full max-w-3xl mx-auto">
+          <Card className="border-border shadow-xs overflow-hidden">
+            <CardHeader className="pb-4 px-4 sm:px-6 sm:pt-6">
+              <div className="flex items-center gap-2 text-primary text-xs font-semibold uppercase tracking-wider">
+                <FileText className="w-4 h-4 shrink-0" />
+                <span>Resmi Talep Formu</span>
+              </div>
+              <CardTitle className="text-xl sm:text-2xl mt-1">
+                Ürün & Tedarik Talebi Oluşturun
+              </CardTitle>
+              <CardDescription className="text-xs sm:text-sm">
+                Formu doldurduğunuzda bilgileriniz düzenlenerek resmi e-posta adresimize ({OFFICIAL_EMAIL}) iletilmek üzere hazırlanır.
+              </CardDescription>
+            </CardHeader>
 
-              <CardContent className="px-4 sm:px-6">
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  {/* Product Choice */}
+            <CardContent className="px-4 sm:px-6 pb-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                {/* Product Choice */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
+                    <Package className="w-3.5 h-3.5 text-primary shrink-0" />
+                    <span>İlgilendiğiniz Ürün veya Hizmet *</span>
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {PRODUCT_OPTIONS.map((item) => (
+                      <button
+                        key={item.id}
+                        type="button"
+                        onClick={() => setSelectedProduct(item.id)}
+                        className={`p-2.5 sm:p-3 rounded-lg border text-left text-xs transition-all flex items-center justify-between gap-2 min-h-[42px] ${
+                          selectedProduct === item.id
+                            ? "border-primary bg-primary/10 text-foreground font-semibold shadow-2xs"
+                            : "border-border bg-card text-muted-foreground hover:bg-muted"
+                        }`}
+                      >
+                        <span className="leading-snug flex-1 pr-1">{item.label}</span>
+                        {selectedProduct === item.id && (
+                          <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Name and Company */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
+                      <User className="w-3.5 h-3.5 text-primary shrink-0" />
+                      <span>Yetkili Adı Soyadı *</span>
+                    </label>
+                    <Input
+                      type="text"
+                      required
+                      placeholder="Örn: Sena Çeliker"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      className="h-10 sm:h-9"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
+                      <Building2 className="w-3.5 h-3.5 text-primary shrink-0" />
+                      <span>Şirket / Takım Adı</span>
+                    </label>
+                    <Input
+                      type="text"
+                      placeholder="Örn: G02 Şirketi / Bağımsız"
+                      value={company}
+                      onChange={(e) => setCompany(e.target.value)}
+                      className="h-10 sm:h-9"
+                    />
+                  </div>
+                </div>
+
+                {/* Email and Phone */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
+                      <Mail className="w-3.5 h-3.5 text-primary shrink-0" />
+                      <span>E-Posta Adresiniz *</span>
+                    </label>
+                    <Input
+                      type="email"
+                      required
+                      placeholder="ornek@sirket.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="h-10 sm:h-9"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
+                      <Phone className="w-3.5 h-3.5 text-primary shrink-0" />
+                      <span>Telefon Numarası</span>
+                    </label>
+                    <Input
+                      type="tel"
+                      placeholder="05XX XXX XX XX"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      className="h-10 sm:h-9"
+                    />
+                  </div>
+                </div>
+
+                {/* Quantity and Payment Option */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
                       <Package className="w-3.5 h-3.5 text-primary shrink-0" />
-                      <span>İlgilendiğiniz Ürün veya Hizmet *</span>
+                      <span>Talep Miktarı (Adet)</span>
                     </label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      {PRODUCT_OPTIONS.map((item) => (
-                        <button
-                          key={item.id}
-                          type="button"
-                          onClick={() => setSelectedProduct(item.id)}
-                          className={`p-2.5 sm:p-3 rounded-lg border text-left text-xs transition-all flex items-center justify-between gap-2 min-h-[42px] ${
-                            selectedProduct === item.id
-                              ? "border-primary bg-primary/10 text-foreground font-semibold shadow-2xs"
-                              : "border-border bg-card text-muted-foreground hover:bg-muted"
-                          }`}
-                        >
-                          <span className="leading-snug flex-1 pr-1">{item.label}</span>
-                          {selectedProduct === item.id && (
-                            <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                          )}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Name and Company */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
-                        <User className="w-3.5 h-3.5 text-primary shrink-0" />
-                        <span>Yetkili Adı Soyadı *</span>
-                      </label>
-                      <Input
-                        type="text"
-                        required
-                        placeholder="Örn: Sena Çeliker"
-                        value={fullName}
-                        onChange={(e) => setFullName(e.target.value)}
-                        className="h-10 sm:h-9"
-                      />
-                    </div>
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
-                        <Building2 className="w-3.5 h-3.5 text-primary shrink-0" />
-                        <span>Şirket / Takım Adı</span>
-                      </label>
-                      <Input
-                        type="text"
-                        placeholder="Örn: G02 Şirketi / Bağımsız"
-                        value={company}
-                        onChange={(e) => setCompany(e.target.value)}
-                        className="h-10 sm:h-9"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Email and Phone */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
-                        <Mail className="w-3.5 h-3.5 text-primary shrink-0" />
-                        <span>E-Posta Adresiniz *</span>
-                      </label>
-                      <Input
-                        type="email"
-                        required
-                        placeholder="ornek@sirket.com"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="h-10 sm:h-9"
-                      />
-                    </div>
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
-                        <Phone className="w-3.5 h-3.5 text-primary shrink-0" />
-                        <span>Telefon Numarası</span>
-                      </label>
-                      <Input
-                        type="tel"
-                        placeholder="05XX XXX XX XX"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        className="h-10 sm:h-9"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Quantity and Payment Option */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
-                        <Package className="w-3.5 h-3.5 text-primary shrink-0" />
-                        <span>Talep Miktarı (Adet)</span>
-                      </label>
-                      <Input
-                        type="number"
-                        min="1"
-                        placeholder="1"
-                        value={quantity}
-                        onChange={(e) => setQuantity(e.target.value)}
-                        className="h-10 sm:h-9"
-                      />
-                    </div>
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
-                        <Clock className="w-3.5 h-3.5 text-primary shrink-0" />
-                        <span>Ödeme / Ticari Tercih</span>
-                      </label>
-                      <select
-                        value={paymentOption}
-                        onChange={(e) => setPaymentOption(e.target.value)}
-                        className="h-10 sm:h-9 w-full rounded-lg border border-input bg-card px-2.5 py-1 text-sm sm:text-xs text-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/50 outline-none"
-                      >
-                        {PAYMENT_OPTIONS.map((opt) => (
-                          <option key={opt} value={opt} className="bg-background text-foreground">
-                            {opt}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Notes */}
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-foreground">
-                      Talep Notları ve Ek Detaylar
-                    </label>
-                    <Textarea
-                      rows={3}
-                      placeholder="Teslimat turu, parti büyüklüğü veya özel anlaşma taleplerinizi buraya yazabilirsiniz..."
-                      value={notes}
-                      onChange={(e) => setNotes(e.target.value)}
+                    <Input
+                      type="number"
+                      min="1"
+                      placeholder="1"
+                      value={quantity}
+                      onChange={(e) => setQuantity(e.target.value)}
+                      className="h-10 sm:h-9"
                     />
                   </div>
-
-                  {/* Submit Button */}
-                  <div className="pt-2">
-                    <Button
-                      type="submit"
-                      className="w-full gap-2 py-3 sm:py-2.5 h-auto text-xs sm:text-sm font-semibold shadow-xs justify-center"
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5 text-primary shrink-0" />
+                      <span>Ödeme / Ticari Tercih</span>
+                    </label>
+                    <select
+                      value={paymentOption}
+                      onChange={(e) => setPaymentOption(e.target.value)}
+                      className="h-10 sm:h-9 w-full rounded-lg border border-input bg-card px-2.5 py-1 text-sm sm:text-xs text-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/50 outline-none"
                     >
-                      <Send className="w-4 h-4 shrink-0" />
-                      <span>Talebi E-Posta ile Gönder</span>
-                    </Button>
+                      {PAYMENT_OPTIONS.map((opt) => (
+                        <option key={opt} value={opt} className="bg-background text-foreground">
+                          {opt}
+                        </option>
+                      ))}
+                    </select>
                   </div>
-                </form>
+                </div>
 
-                {/* Feedback / Post-Submit Status */}
-                {submitted && (
-                  <div className="mt-5 p-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 space-y-3 animate-fade-in">
-                    <div className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-                      <div className="space-y-1">
-                        <div className="text-sm font-bold text-emerald-900 dark:text-emerald-200">
-                          Talebiniz Hazırlandı & E-Posta İstemciniz Açıldı
-                        </div>
-                        <p className="text-xs text-emerald-700 dark:text-emerald-300 leading-relaxed">
-                          E-posta programınız otomatik açılmadıysa aşağıdaki butona tıklayarak talep metnini panoya kopyalayabilir ve doğrudan <strong className="underline">{OFFICIAL_EMAIL}</strong> adresine gönderebilirsiniz.
-                        </p>
+                {/* Notes */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-foreground">
+                    Talep Notları ve Ek Detaylar
+                  </label>
+                  <Textarea
+                    rows={3}
+                    placeholder="Teslimat turu, parti büyüklüğü veya özel anlaşma taleplerinizi buraya yazabilirsiniz..."
+                    value={notes}
+                    onChange={(e) => setNotes(e.target.value)}
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <div className="pt-2">
+                  <Button
+                    type="submit"
+                    className="w-full gap-2 py-3 sm:py-2.5 h-auto text-xs sm:text-sm font-semibold shadow-xs justify-center"
+                  >
+                    <Send className="w-4 h-4 shrink-0" />
+                    <span>Talebi E-Posta ile Gönder</span>
+                  </Button>
+                </div>
+              </form>
+
+              {/* Feedback / Post-Submit Status */}
+              {submitted && (
+                <div className="mt-5 p-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 space-y-3 animate-fade-in">
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                    <div className="space-y-1">
+                      <div className="text-sm font-bold text-emerald-900 dark:text-emerald-200">
+                        Talebiniz Hazırlandı & E-Posta İstemciniz Açıldı
                       </div>
+                      <p className="text-xs text-emerald-700 dark:text-emerald-300 leading-relaxed">
+                        E-posta programınız otomatik açılmadıysa aşağıdaki butona tıklayarak talep metnini panoya kopyalayabilir ve doğrudan <strong className="underline">{OFFICIAL_EMAIL}</strong> adresine gönderebilirsiniz.
+                      </p>
                     </div>
+                  </div>
 
-                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-1 w-full">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-1 w-full">
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="outline"
+                      onClick={handleCopy}
+                      className="w-full sm:w-auto text-xs gap-1.5 bg-background border-emerald-300 text-emerald-800 hover:bg-emerald-100 justify-center h-9 sm:h-8"
+                    >
+                      {copied ? (
+                        <>
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                          <span>Panoya Kopyalandı!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3.5 h-3.5 shrink-0" />
+                          <span>Metni Panoya Kopyala</span>
+                        </>
+                      )}
+                    </Button>
+                    <a
+                      href={`mailto:${OFFICIAL_EMAIL}?subject=${encodeURIComponent(
+                        `[EnerjiNova Talep] - ${fullName || "Müşteri"}`
+                      )}&body=${encodeURIComponent(lastGeneratedBody)}`}
+                      className="w-full sm:w-auto"
+                    >
                       <Button
                         type="button"
                         size="sm"
-                        variant="outline"
-                        onClick={handleCopy}
-                        className="w-full sm:w-auto text-xs gap-1.5 bg-background border-emerald-300 text-emerald-800 hover:bg-emerald-100 justify-center h-9 sm:h-8"
+                        variant="ghost"
+                        className="w-full sm:w-auto text-xs text-emerald-700 hover:text-emerald-900 hover:bg-emerald-100 justify-center h-9 sm:h-8"
                       >
-                        {copied ? (
-                          <>
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                            <span>Panoya Kopyalandı!</span>
-                          </>
-                        ) : (
-                          <>
-                            <Copy className="w-3.5 h-3.5 shrink-0" />
-                            <span>Metni Panoya Kopyala</span>
-                          </>
-                        )}
+                        E-postayı Tekrar Aç
                       </Button>
-                      <a
-                        href={`mailto:${OFFICIAL_EMAIL}?subject=${encodeURIComponent(
-                          `[EnerjiNova Talep] - ${fullName || "Müşteri"}`
-                        )}&body=${encodeURIComponent(lastGeneratedBody)}`}
-                        className="w-full sm:w-auto"
-                      >
-                        <Button
-                          type="button"
-                          size="sm"
-                          variant="ghost"
-                          className="w-full sm:w-auto text-xs text-emerald-700 hover:text-emerald-900 hover:bg-emerald-100 justify-center h-9 sm:h-8"
-                        >
-                          E-postayı Tekrar Aç
-                        </Button>
-                      </a>
-                    </div>
+                    </a>
                   </div>
-                )}
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Side Info Cards (5 cols on desktop) */}
-          <div className="lg:col-span-5 space-y-4 sm:space-y-5">
-            {/* Direct Email Card */}
-            <Card className="border-border shadow-xs card-hover-effect">
-              <CardHeader className="pb-3 px-4 sm:px-6">
-                <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-1">
-                  <Mail className="w-5 h-5" />
                 </div>
-                <CardTitle className="text-lg">Doğrudan E-Posta İletişimi</CardTitle>
-                <CardDescription className="text-xs">
-                  Resmi teklif, teknik şartname veya doğrudan kurumsal yazışma için
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4 px-4 sm:px-6">
-                <a
-                  href={`mailto:${OFFICIAL_EMAIL}`}
-                  className="text-base sm:text-lg md:text-xl font-bold text-primary hover:underline block break-all"
-                >
-                  {OFFICIAL_EMAIL}
-                </a>
-
-                <div className="p-3 rounded-lg bg-muted/60 border border-border text-xs text-muted-foreground flex items-center gap-2.5">
-                  <Clock className="w-4 h-4 text-primary shrink-0" />
-                  <span>
-                    Gelen tüm B2B talepleri iş günlerinde 24 saat içerisinde yanıtlanır.
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Contract & Approval Assurance */}
-            <div className="p-4 rounded-xl border border-border bg-card space-y-2 text-xs text-muted-foreground">
-              <div className="flex items-center gap-2 text-foreground font-semibold">
-                <ShieldCheck className="w-4 h-4 text-primary shrink-0" />
-                <span>Resmi Onay & Protokol</span>
-              </div>
-              <p className="leading-relaxed">
-                Tüm sipariş ve B2B tedarik talepleri, yetkili kurul onayı ve karşılıklı sözleşme imzalandıktan sonra resmi teslimat turunda kesinleşir.
-              </p>
-              <div className="pt-2 flex items-center gap-1.5 text-[11px] text-primary font-medium">
-                <Sparkles className="w-3.5 h-3.5 shrink-0" />
-                <span>Enerji Modülü: 65 ₺ • SmartBox: 850 ₺</span>
-              </div>
-            </div>
-          </div>
+              )}
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
