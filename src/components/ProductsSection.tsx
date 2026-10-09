@@ -114,7 +114,7 @@ export function ProductsSection() {
       : products.filter((p) => p.id === activeTab);
 
   return (
-    <section id="urunler" className="py-16 bg-background border-b border-border">
+    <section id="urunler" className="py-14 sm:py-16 bg-background border-b border-border">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-2.5">
@@ -124,16 +124,17 @@ export function ProductsSection() {
           <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
             Enerji Modülü & Entegre SmartBox Çözümleri
           </h2>
-          <p className="text-sm text-muted-foreground leading-relaxed">
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed px-1">
             Kendi uzmanlık bileşenimizi B2B pazarında arz ederken, 8 girdiyi birleştirerek
             yüksek performanslı SmartBox nihai cihazları üretiyoruz.
           </p>
 
           {/* Filter Buttons */}
-          <div className="pt-3 flex flex-wrap items-center justify-center gap-2">
+          <div className="pt-3 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
             <Button
               variant={activeTab === "all" ? "default" : "outline"}
               size="sm"
+              className="text-xs h-8 px-2.5 sm:px-3"
               onClick={() => setActiveTab("all")}
             >
               Tümü (3)
@@ -141,6 +142,7 @@ export function ProductsSection() {
             <Button
               variant={activeTab === "module" ? "default" : "outline"}
               size="sm"
+              className="text-xs h-8 px-2.5 sm:px-3"
               onClick={() => setActiveTab("module")}
             >
               Enerji Modülü (65 ₺)
@@ -148,6 +150,7 @@ export function ProductsSection() {
             <Button
               variant={activeTab === "smartbox" ? "default" : "outline"}
               size="sm"
+              className="text-xs h-8 px-2.5 sm:px-3"
               onClick={() => setActiveTab("smartbox")}
             >
               SmartBox (850 ₺)
@@ -155,6 +158,7 @@ export function ProductsSection() {
             <Button
               variant={activeTab === "b2b" ? "default" : "outline"}
               size="sm"
+              className="text-xs h-8 px-2.5 sm:px-3"
               onClick={() => setActiveTab("b2b")}
             >
               B2B Tedarik Ağı
@@ -163,7 +167,7 @@ export function ProductsSection() {
         </div>
 
         {/* Product Cards Grid */}
-        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="mt-8 sm:mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {filteredProducts.map((product) => {
             const Icon = product.icon;
             return (
@@ -173,9 +177,9 @@ export function ProductsSection() {
                   product.highlight ? "border-primary shadow-xs ring-1 ring-primary/20" : ""
                 }`}
               >
-                <CardHeader className="pb-3">
-                  <div className="flex items-start justify-between">
-                    <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                <CardHeader className="pb-3 px-4 sm:px-6">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="p-2 rounded-lg bg-primary/10 text-primary shrink-0">
                       <Icon className="w-5 h-5" />
                     </div>
                     <Badge variant={product.badgeVariant} className="text-xs">
@@ -194,8 +198,8 @@ export function ProductsSection() {
                   </div>
                 </CardHeader>
 
-                <CardContent className="space-y-3.5">
-                  <div className="p-3 rounded-lg border border-border bg-muted/30 flex items-baseline justify-between">
+                <CardContent className="space-y-3.5 px-4 sm:px-6">
+                  <div className="p-3 rounded-lg border border-border bg-muted/30 flex items-baseline justify-between gap-2">
                     <div>
                       <span className="text-[11px] text-muted-foreground">
                         Birim Fiyat
@@ -209,7 +213,7 @@ export function ProductsSection() {
                         </span>
                       </div>
                     </div>
-                    <Badge variant="outline" className="text-[10px]">
+                    <Badge variant="outline" className="text-[10px] shrink-0">
                       Min: 1 Adet
                     </Badge>
                   </div>
@@ -228,37 +232,37 @@ export function ProductsSection() {
                         className="flex items-start gap-2 text-xs text-muted-foreground"
                       >
                         <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-                        <span>{feat}</span>
+                        <span className="leading-snug">{feat}</span>
                       </div>
                     ))}
                   </div>
                 </CardContent>
 
-                <CardFooter className="pt-2 flex flex-col gap-2">
+                <CardFooter className="pt-2 pb-4 sm:pb-6 px-4 sm:px-6 flex flex-col gap-2 w-full">
                   <Button
                     variant={product.highlight ? "default" : "outline"}
                     size="sm"
-                    className="w-full gap-2 justify-center font-semibold"
+                    className="w-full gap-2 justify-center font-semibold text-xs sm:text-sm py-2.5 sm:py-2 h-auto"
                     onClick={() => handleSelectProductForForm(product.id)}
                   >
                     <span>{product.ctaText}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-3.5 h-3.5 shrink-0" />
                   </Button>
 
                   <a
                     href={B2B_MARKETPLACE_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full"
+                    className="w-full block"
                   >
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="w-full gap-1.5 text-xs text-muted-foreground hover:text-foreground justify-center border border-dashed border-border"
+                      className="w-full gap-1.5 text-xs text-muted-foreground hover:text-foreground justify-center border border-dashed border-border py-2.5 sm:py-2 h-auto"
                     >
-                      <ShoppingBag className="w-3.5 h-3.5 text-primary" />
+                      <ShoppingBag className="w-3.5 h-3.5 text-primary shrink-0" />
                       <span>B2B Pazar Yerinden Al</span>
-                      <ExternalLink className="w-3 h-3 opacity-70" />
+                      <ExternalLink className="w-3 h-3 opacity-70 shrink-0" />
                     </Button>
                   </a>
                 </CardFooter>
@@ -268,10 +272,10 @@ export function ProductsSection() {
         </div>
 
         {/* Additional B2B Direct Market Box */}
-        <div className="mt-10 p-5 rounded-xl border border-border bg-card/60 backdrop-blur-xs flex flex-col sm:flex-row items-center justify-between gap-4 card-hover-effect">
-          <div className="space-y-1 text-center sm:text-left">
-            <div className="flex items-center justify-center sm:justify-start gap-2">
-              <Sparkles className="w-4 h-4 text-primary" />
+        <div className="mt-8 sm:mt-10 p-4 sm:p-5 rounded-xl border border-border bg-card/60 backdrop-blur-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 card-hover-effect">
+          <div className="space-y-1 text-left w-full sm:w-auto flex-1">
+            <div className="flex flex-wrap items-center gap-2">
+              <Sparkles className="w-4 h-4 text-primary shrink-0" />
               <h4 className="font-bold text-sm text-foreground">
                 B2B Pazar Yeri Satın Alma Linki
               </h4>
@@ -279,7 +283,7 @@ export function ProductsSection() {
                 Öğrenci & Şirket Portalı
               </Badge>
             </div>
-            <p className="text-xs text-muted-foreground max-w-xl">
+            <p className="text-xs text-muted-foreground max-w-xl leading-relaxed">
               Dijital Şirketler Ligi simülasyonundaki öğrenci ve şirket pazar yeri üzerinden
               modül veya SmartBox işlemlerinizi anlık olarak gerçekleştirebilirsiniz.
             </p>
@@ -290,8 +294,8 @@ export function ProductsSection() {
             rel="noopener noreferrer"
             className="w-full sm:w-auto shrink-0"
           >
-            <Button size="sm" className="w-full sm:w-auto gap-2">
-              <ShoppingBag className="w-4 h-4" />
+            <Button size="sm" className="w-full sm:w-auto gap-2 text-xs sm:text-sm py-2.5 sm:py-2 h-auto font-semibold justify-center">
+              <ShoppingBag className="w-4 h-4 shrink-0" />
               <span>Pazar Yeri Portalı ↗</span>
             </Button>
           </a>

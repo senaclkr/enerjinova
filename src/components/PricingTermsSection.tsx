@@ -74,7 +74,7 @@ export function PricingTermsSection() {
   ];
 
   return (
-    <section id="fiyat-listesi" className="py-16 bg-background border-b border-border">
+    <section id="fiyat-listesi" className="py-14 sm:py-16 bg-background border-b border-border">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto space-y-2.5">
@@ -84,30 +84,30 @@ export function PricingTermsSection() {
           <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
             Fiyat Listesi ve Tedarik Standartları
           </h2>
-          <p className="text-sm text-muted-foreground leading-relaxed">
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed px-1">
             EnerjiNova A.Ş. ile gerçekleştirilen B2B ve tüketici işlemlerinde geçerli
             şeffaf birim fiyatlar ve resmi sözleşme ilkeleri.
           </p>
         </div>
 
-        {/* Pure shadcn Table */}
-        <div className="mt-10 max-w-3xl mx-auto">
-          <Card className="border-border shadow-xs">
-            <CardHeader className="py-4 border-b border-border">
-              <div className="flex items-center justify-between">
+        {/* Pricing Table with horizontal scroll support */}
+        <div className="mt-8 sm:mt-10 max-w-3xl mx-auto">
+          <Card className="border-border shadow-xs overflow-hidden">
+            <CardHeader className="py-3.5 sm:py-4 px-4 sm:px-6 border-b border-border">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div>
                   <CardTitle className="text-base">Resmi Ürün & Bileşen Tarifesi</CardTitle>
                   <CardDescription className="text-xs">
                     Tüm tutarlar Türk Lirası (₺) cinsindendir.
                   </CardDescription>
                 </div>
-                <Badge variant="outline" className="text-xs">
+                <Badge variant="outline" className="text-xs self-start sm:self-auto">
                   Para Birimi: TL (₺)
                 </Badge>
               </div>
             </CardHeader>
-            <CardContent className="p-0">
-              <Table>
+            <CardContent className="p-0 overflow-x-auto">
+              <Table className="min-w-[500px]">
                 <TableHeader>
                   <TableRow>
                     <TableHead className="w-[45%]">Ürün / Kalem</TableHead>
@@ -169,28 +169,28 @@ export function PricingTermsSection() {
             </CardContent>
           </Card>
 
-          {/* Quick Purchase Banner underneath the table */}
-          <div className="mt-4 p-3.5 rounded-lg border border-border bg-muted/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-            <div className="text-muted-foreground text-center sm:text-left">
+          {/* Quick Purchase Banner underneath the table: fully responsive stack */}
+          <div className="mt-4 p-3.5 sm:p-4 rounded-lg border border-border bg-muted/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+            <div className="text-muted-foreground text-left leading-relaxed">
               <strong className="text-foreground">Doğrudan Sipariş:</strong> Pazar yeri üzerinden veya talep formuyla işlem yapabilirsiniz.
             </div>
-            <div className="flex items-center gap-2 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto shrink-0">
               <a
                 href={B2B_MARKETPLACE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto"
               >
-                <Button size="sm" variant="default" className="w-full sm:w-auto text-xs gap-1.5 h-8">
-                  <ShoppingBag className="w-3.5 h-3.5" />
+                <Button size="sm" variant="default" className="w-full sm:w-auto text-xs gap-1.5 py-2 sm:py-1.5 h-auto min-h-8 justify-center font-semibold">
+                  <ShoppingBag className="w-3.5 h-3.5 shrink-0" />
                   <span>B2B Pazar Yeri Linki</span>
-                  <ExternalLink className="w-3 h-3" />
+                  <ExternalLink className="w-3 h-3 shrink-0" />
                 </Button>
               </a>
               <a href="#iletisim" className="w-full sm:w-auto">
-                <Button size="sm" variant="outline" className="w-full sm:w-auto text-xs gap-1 h-8">
+                <Button size="sm" variant="outline" className="w-full sm:w-auto text-xs gap-1 py-2 sm:py-1.5 h-auto min-h-8 justify-center">
                   <span>Talep Formu</span>
-                  <ArrowRight className="w-3 h-3" />
+                  <ArrowRight className="w-3 h-3 shrink-0" />
                 </Button>
               </a>
             </div>
@@ -198,9 +198,9 @@ export function PricingTermsSection() {
         </div>
 
         {/* 6 Terms Grid */}
-        <div className="mt-12 max-w-4xl mx-auto">
+        <div className="mt-10 sm:mt-12 max-w-4xl mx-auto">
           <div className="text-center mb-6">
-            <h3 className="text-lg font-bold text-foreground">
+            <h3 className="text-base sm:text-lg font-bold text-foreground">
               6 Temel Sözleşme İlkesi
             </h3>
             <p className="text-xs text-muted-foreground mt-0.5">
@@ -208,13 +208,13 @@ export function PricingTermsSection() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
             {terms.map((item, idx) => {
               const TermIcon = item.icon;
               return (
                 <div key={idx} className="p-4 rounded-lg border border-border bg-card card-hover-effect">
                   <div className="flex items-center gap-2 text-primary mb-1.5">
-                    <TermIcon className="w-4 h-4" />
+                    <TermIcon className="w-4 h-4 shrink-0" />
                     <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
                       {item.title}
                     </span>

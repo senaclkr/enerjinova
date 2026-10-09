@@ -135,17 +135,17 @@ ${fullName || company || "Alıcı / Müşteri"}`;
   };
 
   return (
-    <section id="iletisim" className="py-20 bg-background border-t border-border">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section id="iletisim" className="py-14 sm:py-20 bg-background border-t border-border">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-12">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-3">
+        <div className="text-center max-w-2xl mx-auto space-y-2.5 sm:space-y-3">
           <Badge variant="secondary" className="px-3 py-1 text-xs">
             İletişim & Sipariş
           </Badge>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">
             Ürün Talep ve İletişim Formu
           </h2>
-          <p className="text-base text-muted-foreground">
+          <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed px-1">
             Enerji Modülü, SmartBox veya B2B tedarik ortaklığı için formu doldurarak
             doğrudan <strong className="text-foreground">{OFFICIAL_EMAIL}</strong> adresine
             talebinizi iletebilirsiniz.
@@ -153,21 +153,21 @@ ${fullName || company || "Alıcı / Müşteri"}`;
         </div>
 
         {/* B2B Marketplace Prominent Banner */}
-        <div className="rounded-xl border-2 border-primary/30 bg-primary/5 p-5 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-5 card-hover-effect">
-          <div className="flex items-start sm:items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-primary text-primary-foreground flex items-center justify-center shrink-0 shadow-sm">
-              <ShoppingBag className="w-6 h-6" />
+        <div className="rounded-xl border-2 border-primary/30 bg-primary/5 p-4 sm:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-5 card-hover-effect">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3.5 sm:gap-4 w-full flex-1">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary text-primary-foreground flex items-center justify-center shrink-0 shadow-sm">
+              <ShoppingBag className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
-            <div className="space-y-1 text-left">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="font-bold text-foreground text-base sm:text-lg">
+            <div className="space-y-1 text-left flex-1 min-w-0">
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                <span className="font-bold text-foreground text-sm sm:text-base md:text-lg">
                   Dijital Şirketler Ligi B2B Pazar Yeri
                 </span>
                 <Badge variant="default" className="text-[10px] bg-primary">
                   Canlı Satın Alma Portalı
                 </Badge>
               </div>
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-2xl">
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 Siparişinizi beklemeden dijital pazar yeri üzerinden doğrudan vermek,
                 yetkili B2B ligi sözleşme ve satın alma işlemlerini anında tamamlamak için
                 öğrenci/kurumsal pazar yerini kullanabilirsiniz.
@@ -180,21 +180,21 @@ ${fullName || company || "Alıcı / Müşteri"}`;
             rel="noopener noreferrer"
             className="w-full md:w-auto shrink-0"
           >
-            <Button className="w-full md:w-auto gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-5 shadow-xs">
+            <Button className="w-full md:w-auto gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-4 sm:px-5 py-2.5 h-auto text-xs sm:text-sm shadow-xs justify-center">
               <span>B2B Pazar Yerine Git</span>
-              <ExternalLink className="w-4 h-4" />
+              <ExternalLink className="w-4 h-4 shrink-0" />
             </Button>
           </a>
         </div>
 
         {/* Form and Contact Info Grid */}
-        <div className="grid lg:grid-cols-12 gap-8 items-start">
-          {/* Main Form (7 cols) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+          {/* Main Form (7 cols on desktop) */}
           <div className="lg:col-span-7">
-            <Card className="border-border shadow-xs">
-              <CardHeader className="pb-4">
+            <Card className="border-border shadow-xs overflow-hidden">
+              <CardHeader className="pb-4 px-4 sm:px-6">
                 <div className="flex items-center gap-2 text-primary text-xs font-semibold uppercase tracking-wider">
-                  <FileText className="w-4 h-4" />
+                  <FileText className="w-4 h-4 shrink-0" />
                   <span>Resmi Talep Formu</span>
                 </div>
                 <CardTitle className="text-xl sm:text-2xl mt-1">
@@ -205,28 +205,29 @@ ${fullName || company || "Alıcı / Müşteri"}`;
                 </CardDescription>
               </CardHeader>
 
-              <CardContent>
+              <CardContent className="px-4 sm:px-6">
                 <form onSubmit={handleSubmit} className="space-y-4">
                   {/* Product Choice */}
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
-                      <Package className="w-3.5 h-3.5 text-primary" />
+                      <Package className="w-3.5 h-3.5 text-primary shrink-0" />
                       <span>İlgilendiğiniz Ürün veya Hizmet *</span>
                     </label>
-                    <div className="grid sm:grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {PRODUCT_OPTIONS.map((item) => (
                         <button
                           key={item.id}
                           type="button"
                           onClick={() => setSelectedProduct(item.id)}
-                          className={`p-2.5 rounded-lg border text-left text-xs transition-all flex items-center justify-between ${selectedProduct === item.id
-                            ? "border-primary bg-primary/10 text-foreground font-semibold shadow-2xs"
-                            : "border-border bg-card text-muted-foreground hover:bg-muted"
-                            }`}
+                          className={`p-2.5 sm:p-3 rounded-lg border text-left text-xs transition-all flex items-center justify-between gap-2 min-h-[42px] ${
+                            selectedProduct === item.id
+                              ? "border-primary bg-primary/10 text-foreground font-semibold shadow-2xs"
+                              : "border-border bg-card text-muted-foreground hover:bg-muted"
+                          }`}
                         >
-                          <span>{item.label}</span>
+                          <span className="leading-snug flex-1 pr-1">{item.label}</span>
                           {selectedProduct === item.id && (
-                            <CheckCircle2 className="w-4 h-4 text-primary shrink-0 ml-1" />
+                            <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
                           )}
                         </button>
                       ))}
@@ -234,10 +235,10 @@ ${fullName || company || "Alıcı / Müşteri"}`;
                   </div>
 
                   {/* Name and Company */}
-                  <div className="grid sm:grid-cols-2 gap-3.5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
                     <div className="space-y-1.5">
                       <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
-                        <User className="w-3.5 h-3.5 text-primary" />
+                        <User className="w-3.5 h-3.5 text-primary shrink-0" />
                         <span>Yetkili Adı Soyadı *</span>
                       </label>
                       <Input
@@ -246,11 +247,12 @@ ${fullName || company || "Alıcı / Müşteri"}`;
                         placeholder="Örn: Sena Çeliker"
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
+                        className="h-10 sm:h-9"
                       />
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
-                        <Building2 className="w-3.5 h-3.5 text-primary" />
+                        <Building2 className="w-3.5 h-3.5 text-primary shrink-0" />
                         <span>Şirket / Takım Adı</span>
                       </label>
                       <Input
@@ -258,15 +260,16 @@ ${fullName || company || "Alıcı / Müşteri"}`;
                         placeholder="Örn: G02 Şirketi / Bağımsız"
                         value={company}
                         onChange={(e) => setCompany(e.target.value)}
+                        className="h-10 sm:h-9"
                       />
                     </div>
                   </div>
 
                   {/* Email and Phone */}
-                  <div className="grid sm:grid-cols-2 gap-3.5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
                     <div className="space-y-1.5">
                       <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
-                        <Mail className="w-3.5 h-3.5 text-primary" />
+                        <Mail className="w-3.5 h-3.5 text-primary shrink-0" />
                         <span>E-Posta Adresiniz *</span>
                       </label>
                       <Input
@@ -275,11 +278,12 @@ ${fullName || company || "Alıcı / Müşteri"}`;
                         placeholder="ornek@sirket.com"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        className="h-10 sm:h-9"
                       />
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
-                        <Phone className="w-3.5 h-3.5 text-primary" />
+                        <Phone className="w-3.5 h-3.5 text-primary shrink-0" />
                         <span>Telefon Numarası</span>
                       </label>
                       <Input
@@ -287,15 +291,16 @@ ${fullName || company || "Alıcı / Müşteri"}`;
                         placeholder="05XX XXX XX XX"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
+                        className="h-10 sm:h-9"
                       />
                     </div>
                   </div>
 
                   {/* Quantity and Payment Option */}
-                  <div className="grid sm:grid-cols-2 gap-3.5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
                     <div className="space-y-1.5">
                       <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
-                        <Package className="w-3.5 h-3.5 text-primary" />
+                        <Package className="w-3.5 h-3.5 text-primary shrink-0" />
                         <span>Talep Miktarı (Adet)</span>
                       </label>
                       <Input
@@ -304,17 +309,18 @@ ${fullName || company || "Alıcı / Müşteri"}`;
                         placeholder="1"
                         value={quantity}
                         onChange={(e) => setQuantity(e.target.value)}
+                        className="h-10 sm:h-9"
                       />
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
-                        <Clock className="w-3.5 h-3.5 text-primary" />
+                        <Clock className="w-3.5 h-3.5 text-primary shrink-0" />
                         <span>Ödeme / Ticari Tercih</span>
                       </label>
                       <select
                         value={paymentOption}
                         onChange={(e) => setPaymentOption(e.target.value)}
-                        className="h-8 w-full rounded-lg border border-input bg-transparent px-2.5 py-1 text-xs text-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 outline-none"
+                        className="h-10 sm:h-9 w-full rounded-lg border border-input bg-card px-2.5 py-1 text-sm sm:text-xs text-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/50 outline-none"
                       >
                         {PAYMENT_OPTIONS.map((opt) => (
                           <option key={opt} value={opt} className="bg-background text-foreground">
@@ -342,9 +348,9 @@ ${fullName || company || "Alıcı / Müşteri"}`;
                   <div className="pt-2">
                     <Button
                       type="submit"
-                      className="w-full gap-2 py-5 text-sm font-semibold shadow-xs"
+                      className="w-full gap-2 py-3 sm:py-2.5 h-auto text-xs sm:text-sm font-semibold shadow-xs justify-center"
                     >
-                      <Send className="w-4 h-4" />
+                      <Send className="w-4 h-4 shrink-0" />
                       <span>Talebi E-Posta ile Gönder</span>
                     </Button>
                   </div>
@@ -365,22 +371,22 @@ ${fullName || company || "Alıcı / Müşteri"}`;
                       </div>
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-2 pt-1">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-1 w-full">
                       <Button
                         type="button"
                         size="sm"
                         variant="outline"
                         onClick={handleCopy}
-                        className="text-xs gap-1.5 bg-background border-emerald-300 text-emerald-800 hover:bg-emerald-100"
+                        className="w-full sm:w-auto text-xs gap-1.5 bg-background border-emerald-300 text-emerald-800 hover:bg-emerald-100 justify-center h-9 sm:h-8"
                       >
                         {copied ? (
                           <>
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                             <span>Panoya Kopyalandı!</span>
                           </>
                         ) : (
                           <>
-                            <Copy className="w-3.5 h-3.5" />
+                            <Copy className="w-3.5 h-3.5 shrink-0" />
                             <span>Metni Panoya Kopyala</span>
                           </>
                         )}
@@ -389,13 +395,13 @@ ${fullName || company || "Alıcı / Müşteri"}`;
                         href={`mailto:${OFFICIAL_EMAIL}?subject=${encodeURIComponent(
                           `[EnerjiNova Talep] - ${fullName || "Müşteri"}`
                         )}&body=${encodeURIComponent(lastGeneratedBody)}`}
-                        className="inline-block"
+                        className="w-full sm:w-auto"
                       >
                         <Button
                           type="button"
                           size="sm"
                           variant="ghost"
-                          className="text-xs text-emerald-700 hover:text-emerald-900 hover:bg-emerald-100"
+                          className="w-full sm:w-auto text-xs text-emerald-700 hover:text-emerald-900 hover:bg-emerald-100 justify-center h-9 sm:h-8"
                         >
                           E-postayı Tekrar Aç
                         </Button>
@@ -407,11 +413,11 @@ ${fullName || company || "Alıcı / Müşteri"}`;
             </Card>
           </div>
 
-          {/* Side Info Cards (5 cols) */}
-          <div className="lg:col-span-5 space-y-5">
+          {/* Side Info Cards (5 cols on desktop) */}
+          <div className="lg:col-span-5 space-y-4 sm:space-y-5">
             {/* Direct Email Card */}
             <Card className="border-border shadow-xs card-hover-effect">
-              <CardHeader className="pb-3">
+              <CardHeader className="pb-3 px-4 sm:px-6">
                 <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-1">
                   <Mail className="w-5 h-5" />
                 </div>
@@ -420,10 +426,10 @@ ${fullName || company || "Alıcı / Müşteri"}`;
                   Resmi teklif, teknik şartname veya doğrudan kurumsal yazışma için
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-4 px-4 sm:px-6">
                 <a
                   href={`mailto:${OFFICIAL_EMAIL}`}
-                  className="text-lg sm:text-xl font-bold text-primary hover:underline block break-all"
+                  className="text-base sm:text-lg md:text-xl font-bold text-primary hover:underline block break-all"
                 >
                   {OFFICIAL_EMAIL}
                 </a>
@@ -437,18 +443,17 @@ ${fullName || company || "Alıcı / Müşteri"}`;
               </CardContent>
             </Card>
 
-
             {/* Contract & Approval Assurance */}
             <div className="p-4 rounded-xl border border-border bg-card space-y-2 text-xs text-muted-foreground">
               <div className="flex items-center gap-2 text-foreground font-semibold">
-                <ShieldCheck className="w-4 h-4 text-primary" />
+                <ShieldCheck className="w-4 h-4 text-primary shrink-0" />
                 <span>Resmi Onay & Protokol</span>
               </div>
               <p className="leading-relaxed">
                 Tüm sipariş ve B2B tedarik talepleri, yetkili kurul onayı ve karşılıklı sözleşme imzalandıktan sonra resmi teslimat turunda kesinleşir.
               </p>
               <div className="pt-2 flex items-center gap-1.5 text-[11px] text-primary font-medium">
-                <Sparkles className="w-3.5 h-3.5" />
+                <Sparkles className="w-3.5 h-3.5 shrink-0" />
                 <span>Enerji Modülü: 65 ₺ • SmartBox: 850 ₺</span>
               </div>
             </div>
