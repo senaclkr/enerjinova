@@ -13,13 +13,12 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Hakkımızda", href: "#hakkimizda" },
-    { name: "Performans (KPI)", href: "#kpi" },
-    { name: "Ürünler", href: "#urunler" },
-    { name: "Bileşenler", href: "#mimari" },
-    { name: "Fiyatlar", href: "#fiyat-listesi" },
-    { name: "Sipariş Formu", href: "#siparis" },
-    { name: "İletişim", href: "#iletisim" },
+    { name: "Hakkımızda", href: "/hakkimizda" },
+    { name: "Ürünler", href: "/#urunler" },
+    { name: "Bileşenler", href: "/#mimari" },
+    { name: "Fiyatlar", href: "/#fiyat-listesi" },
+    { name: "Sipariş Formu", href: "/#siparis" },
+    { name: "İletişim", href: "/#iletisim" },
   ];
 
   return (

@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Mail, ShieldCheck, ArrowUp, ShoppingBag, ExternalLink } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
@@ -46,24 +47,24 @@ export function Footer() {
             </div>
             <ul className="space-y-1.5">
               <li>
-                <a
-                  href="#hakkimizda"
+                <Link
+                  href="/hakkimizda"
                   className="hover:text-foreground transition-colors"
                 >
-                  Kurumsal & Misyon
-                </a>
+                  Hakkımızda
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/hakkimizda#kpi"
+                  className="hover:text-foreground transition-colors font-medium text-foreground"
+                >
+                  KPI
+                </Link>
               </li>
               <li>
                 <a
-                  href="#kpi"
-                  className="hover:text-foreground transition-colors"
-                >
-                  Performans & KPI Paneli
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#urunler"
+                  href="/#urunler"
                   className="hover:text-foreground transition-colors"
                 >
                   Enerji Modülü & SmartBox
@@ -71,7 +72,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#mimari"
+                  href="/#mimari"
                   className="hover:text-foreground transition-colors"
                 >
                   8 Bileşen Mimarisi
@@ -79,7 +80,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#fiyat-listesi"
+                  href="/#fiyat-listesi"
                   className="hover:text-foreground transition-colors"
                 >
                   Fiyat Listesi & Koşullar
@@ -87,7 +88,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#siparis"
+                  href="/#siparis"
                   className="hover:text-foreground transition-colors"
                 >
                   Sipariş Formu
@@ -95,7 +96,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#iletisim"
+                  href="/#iletisim"
                   className="hover:text-foreground transition-colors font-medium text-primary"
                 >
                   Ürün Talep & İletişim Formu
