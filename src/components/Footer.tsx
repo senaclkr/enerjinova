@@ -2,9 +2,13 @@
 
 import React from "react";
 import Image from "next/image";
-import { Mail, ShieldCheck, ArrowUp } from "lucide-react";
+import { Mail, ShieldCheck, ArrowUp, ShoppingBag, ExternalLink } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
+
+const OFFICIAL_EMAIL = "enerjinova.iletisim@gmail.com";
+const B2B_MARKETPLACE_URL =
+  "https://dijital-sirketler-ligi-serhat-ata.ataserhat54.chatgpt.site/ogrenci";
 
 export function Footer() {
   const scrollToTop = () => {
@@ -76,9 +80,21 @@ export function Footer() {
               <li>
                 <a
                   href="#iletisim"
-                  className="hover:text-foreground transition-colors"
+                  className="hover:text-foreground transition-colors font-medium text-primary"
                 >
-                  İletişim
+                  Ürün Talep & İletişim Formu
+                </a>
+              </li>
+              <li>
+                <a
+                  href={B2B_MARKETPLACE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-foreground transition-colors inline-flex items-center gap-1 text-primary font-medium"
+                >
+                  <ShoppingBag className="w-3 h-3" />
+                  <span>B2B Pazar Yeri Portalı</span>
+                  <ExternalLink className="w-2.5 h-2.5" />
                 </a>
               </li>
             </ul>
@@ -87,21 +103,32 @@ export function Footer() {
           {/* Contact */}
           <div className="md:col-span-4 space-y-3">
             <div className="font-semibold text-foreground text-sm">
-              İletişim & Onay
+              İletişim & Satın Alma
             </div>
-            <div className="p-3.5 rounded-lg border border-border bg-card space-y-1.5">
+            <div className="p-3.5 rounded-lg border border-border bg-card space-y-2">
               <div className="flex items-center gap-2 text-foreground font-medium">
-                <Mail className="w-4 h-4 text-primary" />
+                <Mail className="w-4 h-4 text-primary shrink-0" />
                 <a
-                  href="mailto:enerjinova.iletisim@gmail.com"
-                  className="hover:underline text-primary"
+                  href={`mailto:${OFFICIAL_EMAIL}`}
+                  className="hover:underline text-primary break-all"
                 >
-                  enerjinova.iletisim@gmail.com
+                  {OFFICIAL_EMAIL}
                 </a>
               </div>
               <p className="text-[11px] text-muted-foreground">
                 Sipariş onayları kurumsal sözleşme ve yetkili onayları ile kesinleşir.
               </p>
+              <div className="pt-1">
+                <a
+                  href={B2B_MARKETPLACE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[11px] text-primary hover:underline flex items-center gap-1 font-semibold"
+                >
+                  <span>B2B Satın Alma / Pazar Yeri Linki</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
             </div>
 
             <Button
@@ -122,7 +149,7 @@ export function Footer() {
           <div>
             © {new Date().getFullYear()} EnerjiNova A.Ş. — Tüm Hakları Saklıdır.
           </div>
-          <div>SmartBox & B2B Enerji Çözümleri</div>
+          <div>SmartBox & B2B Enerji Çözümleri • enerjinova.iletisim@gmail.com</div>
         </div>
       </div>
     </footer>

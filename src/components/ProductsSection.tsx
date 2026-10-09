@@ -1,7 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
-import { Cpu, Layers, Truck, ArrowRight, CheckCircle2 } from "lucide-react";
+import {
+  Cpu,
+  Layers,
+  Truck,
+  ArrowRight,
+  CheckCircle2,
+  ShoppingBag,
+  ExternalLink,
+  Sparkles,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -12,6 +21,9 @@ import {
   CardContent,
   CardFooter,
 } from "@/components/ui/card";
+
+const B2B_MARKETPLACE_URL =
+  "https://dijital-sirketler-ligi-serhat-ata.ataserhat54.chatgpt.site/ogrenci";
 
 export function ProductsSection() {
   const [activeTab, setActiveTab] = useState<"all" | "module" | "smartbox" | "b2b">("all");
@@ -82,6 +94,20 @@ export function ProductsSection() {
     },
   ];
 
+  const handleSelectProductForForm = (productId: string) => {
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(
+        new CustomEvent("enerjinova-select-product", {
+          detail: { productId },
+        })
+      );
+      const target = document.getElementById("iletisim");
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   const filteredProducts =
     activeTab === "all"
       ? products
@@ -144,7 +170,7 @@ export function ProductsSection() {
               <Card
                 key={product.id}
                 className={`flex flex-col justify-between card-hover-effect ${
-                  product.highlight ? "border-primary shadow-xs" : ""
+                  product.highlight ? "border-primary shadow-xs ring-1 ring-primary/20" : ""
                 }`}
               >
                 <CardHeader className="pb-3">
@@ -208,21 +234,67 @@ export function ProductsSection() {
                   </div>
                 </CardContent>
 
-                <CardFooter className="pt-2">
-                  <a href="#iletisim" className="w-full">
+                <CardFooter className="pt-2 flex flex-col gap-2">
+                  <Button
+                    variant={product.highlight ? "default" : "outline"}
+                    size="sm"
+                    className="w-full gap-2 justify-center font-semibold"
+                    onClick={() => handleSelectProductForForm(product.id)}
+                  >
+                    <span>{product.ctaText}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Button>
+
+                  <a
+                    href={B2B_MARKETPLACE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full"
+                  >
                     <Button
-                      variant={product.highlight ? "default" : "outline"}
+                      variant="ghost"
                       size="sm"
-                      className="w-full gap-2 justify-center"
+                      className="w-full gap-1.5 text-xs text-muted-foreground hover:text-foreground justify-center border border-dashed border-border"
                     >
-                      <span>{product.ctaText}</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ShoppingBag className="w-3.5 h-3.5 text-primary" />
+                      <span>B2B Pazar Yerinden Al</span>
+                      <ExternalLink className="w-3 h-3 opacity-70" />
                     </Button>
                   </a>
                 </CardFooter>
               </Card>
             );
           })}
+        </div>
+
+        {/* Additional B2B Direct Market Box */}
+        <div className="mt-10 p-5 rounded-xl border border-border bg-card/60 backdrop-blur-xs flex flex-col sm:flex-row items-center justify-between gap-4 card-hover-effect">
+          <div className="space-y-1 text-center sm:text-left">
+            <div className="flex items-center justify-center sm:justify-start gap-2">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <h4 className="font-bold text-sm text-foreground">
+                B2B Pazar Yeri Satın Alma Linki
+              </h4>
+              <Badge variant="secondary" className="text-[10px]">
+                Öğrenci & Şirket Portalı
+              </Badge>
+            </div>
+            <p className="text-xs text-muted-foreground max-w-xl">
+              Dijital Şirketler Ligi simülasyonundaki öğrenci ve şirket pazar yeri üzerinden
+              modül veya SmartBox işlemlerinizi anlık olarak gerçekleştirebilirsiniz.
+            </p>
+          </div>
+          <a
+            href={B2B_MARKETPLACE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto shrink-0"
+          >
+            <Button size="sm" className="w-full sm:w-auto gap-2">
+              <ShoppingBag className="w-4 h-4" />
+              <span>Pazar Yeri Portalı ↗</span>
+            </Button>
+          </a>
         </div>
       </div>
     </section>

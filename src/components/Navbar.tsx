@@ -3,8 +3,11 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingBag, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+const B2B_MARKETPLACE_URL =
+  "https://dijital-sirketler-ligi-serhat-ata.ataserhat54.chatgpt.site/ogrenci";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +17,7 @@ export function Navbar() {
     { name: "Ürünler", href: "#urunler" },
     { name: "Bileşenler", href: "#mimari" },
     { name: "Fiyatlar", href: "#fiyat-listesi" },
-    { name: "İletişim", href: "#iletisim" },
+    { name: "Talep Formu", href: "#iletisim" },
   ];
 
   return (
@@ -34,8 +37,8 @@ export function Navbar() {
             </div>
           </Link>
 
-          {/* Clean, Narrow Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-5">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -47,10 +50,29 @@ export function Navbar() {
             ))}
           </nav>
 
-          {/* Simple CTA */}
-          <div className="hidden md:flex items-center">
-            <a href="mailto:enerjinova.iletisim@gmail.com">
-              <Button size="sm">İletişime Geç</Button>
+          {/* Desktop CTAs: B2B Marketplace & Contact */}
+          <div className="hidden md:flex items-center gap-2.5">
+            <a
+              href={B2B_MARKETPLACE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex"
+            >
+              <Button
+                variant="outline"
+                size="sm"
+                className="gap-1.5 text-xs font-semibold border-primary/30 text-foreground hover:bg-primary/10 hover:text-primary"
+              >
+                <ShoppingBag className="w-3.5 h-3.5 text-primary" />
+                <span>B2B Pazar Yeri</span>
+                <ExternalLink className="w-3 h-3 opacity-70" />
+              </Button>
+            </a>
+
+            <a href="#iletisim">
+              <Button size="sm" className="text-xs font-semibold">
+                Talep Gönder
+              </Button>
             </a>
           </div>
 
@@ -80,14 +102,32 @@ export function Navbar() {
                 {link.name}
               </a>
             ))}
-            <div className="pt-2 px-3">
+            <div className="pt-2 px-3 space-y-2">
               <a
-                href="mailto:enerjinova.iletisim@gmail.com"
+                href={B2B_MARKETPLACE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="w-full"
+                className="block w-full"
               >
-                <Button size="sm" className="w-full">
-                  İletişime Geç
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full gap-2 border-primary/30 justify-center text-xs font-semibold"
+                >
+                  <ShoppingBag className="w-3.5 h-3.5 text-primary" />
+                  <span>B2B Pazar Yeri (Satın Al)</span>
+                  <ExternalLink className="w-3 h-3" />
+                </Button>
+              </a>
+
+              <a
+                href="#iletisim"
+                onClick={() => setIsOpen(false)}
+                className="block w-full"
+              >
+                <Button size="sm" className="w-full text-xs font-semibold justify-center">
+                  Ürün Talep Formu
                 </Button>
               </a>
             </div>

@@ -2,9 +2,12 @@
 
 import React from "react";
 import Image from "next/image";
-import { ArrowRight, Cpu, Layers, ShieldCheck } from "lucide-react";
+import { ArrowRight, Cpu, Layers, ShieldCheck, ShoppingBag, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+
+const B2B_MARKETPLACE_URL =
+  "https://dijital-sirketler-ligi-serhat-ata.ataserhat54.chatgpt.site/ogrenci";
 
 export function Hero() {
   return (
@@ -45,16 +48,29 @@ export function Hero() {
 
           {/* Action Buttons */}
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a
+              href={B2B_MARKETPLACE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
+              <Button size="sm" className="w-full sm:w-auto gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-xs">
+                <ShoppingBag className="w-4 h-4" />
+                <span>B2B Pazar Yeri (Satın Al)</span>
+                <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+              </Button>
+            </a>
+
             <a href="#urunler" className="w-full sm:w-auto">
-              <Button size="sm" className="w-full sm:w-auto gap-2">
+              <Button variant="outline" size="sm" className="w-full sm:w-auto gap-2">
                 <span>Ürünleri İncele</span>
                 <ArrowRight className="w-4 h-4" />
               </Button>
             </a>
 
             <a href="#iletisim" className="w-full sm:w-auto">
-              <Button variant="outline" size="sm" className="w-full sm:w-auto">
-                Kurumsal İletişim
+              <Button variant="ghost" size="sm" className="w-full sm:w-auto">
+                Ürün Talep Formu
               </Button>
             </a>
           </div>

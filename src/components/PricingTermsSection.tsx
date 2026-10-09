@@ -8,8 +8,12 @@ import {
   ShieldCheck,
   Layers,
   AlertTriangle,
+  ShoppingBag,
+  ExternalLink,
+  ArrowRight,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Table,
   TableHeader,
@@ -25,6 +29,9 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
+
+const B2B_MARKETPLACE_URL =
+  "https://dijital-sirketler-ligi-serhat-ata.ataserhat54.chatgpt.site/ogrenci";
 
 export function PricingTermsSection() {
   const terms = [
@@ -161,6 +168,33 @@ export function PricingTermsSection() {
               </Table>
             </CardContent>
           </Card>
+
+          {/* Quick Purchase Banner underneath the table */}
+          <div className="mt-4 p-3.5 rounded-lg border border-border bg-muted/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+            <div className="text-muted-foreground text-center sm:text-left">
+              <strong className="text-foreground">Doğrudan Sipariş:</strong> Pazar yeri üzerinden veya talep formuyla işlem yapabilirsiniz.
+            </div>
+            <div className="flex items-center gap-2 w-full sm:w-auto">
+              <a
+                href={B2B_MARKETPLACE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+              >
+                <Button size="sm" variant="default" className="w-full sm:w-auto text-xs gap-1.5 h-8">
+                  <ShoppingBag className="w-3.5 h-3.5" />
+                  <span>B2B Pazar Yeri Linki</span>
+                  <ExternalLink className="w-3 h-3" />
+                </Button>
+              </a>
+              <a href="#iletisim" className="w-full sm:w-auto">
+                <Button size="sm" variant="outline" className="w-full sm:w-auto text-xs gap-1 h-8">
+                  <span>Talep Formu</span>
+                  <ArrowRight className="w-3 h-3" />
+                </Button>
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* 6 Terms Grid */}
