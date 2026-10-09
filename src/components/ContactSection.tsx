@@ -219,11 +219,10 @@ ${fullName || company || "Alıcı / Müşteri"}`;
                           key={item.id}
                           type="button"
                           onClick={() => setSelectedProduct(item.id)}
-                          className={`p-2.5 rounded-lg border text-left text-xs transition-all flex items-center justify-between ${
-                            selectedProduct === item.id
-                              ? "border-primary bg-primary/10 text-foreground font-semibold shadow-2xs"
-                              : "border-border bg-card text-muted-foreground hover:bg-muted"
-                          }`}
+                          className={`p-2.5 rounded-lg border text-left text-xs transition-all flex items-center justify-between ${selectedProduct === item.id
+                            ? "border-primary bg-primary/10 text-foreground font-semibold shadow-2xs"
+                            : "border-border bg-card text-muted-foreground hover:bg-muted"
+                            }`}
                         >
                           <span>{item.label}</span>
                           {selectedProduct === item.id && (
@@ -346,7 +345,7 @@ ${fullName || company || "Alıcı / Müşteri"}`;
                       className="w-full gap-2 py-5 text-sm font-semibold shadow-xs"
                     >
                       <Send className="w-4 h-4" />
-                      <span>Talebi E-Posta ile Gönder ({OFFICIAL_EMAIL})</span>
+                      <span>Talebi E-Posta ile Gönder</span>
                     </Button>
                   </div>
                 </form>
@@ -438,43 +437,6 @@ ${fullName || company || "Alıcı / Müşteri"}`;
               </CardContent>
             </Card>
 
-            {/* B2B Marketplace Direct Card */}
-            <Card className="border-border shadow-xs card-hover-effect bg-muted/20">
-              <CardHeader className="pb-3">
-                <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-1">
-                  <ShoppingBag className="w-5 h-5" />
-                </div>
-                <div className="flex items-center justify-between">
-                  <CardTitle className="text-lg">B2B Pazar Yeri Satın Alma</CardTitle>
-                  <Badge variant="outline" className="text-[10px]">
-                    Öğrenci Portalı
-                  </Badge>
-                </div>
-                <CardDescription className="text-xs">
-                  Dijital Şirketler Ligi resmi satın alma ve takas platformu
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3.5">
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  Şirketler Ligi simülasyonu kapsamındaki B2B alımlarınızı ve modül tedariklerinizi web tabanlı pazar yeri üzerinden hızlıca tamamlayabilirsiniz.
-                </p>
-                <a
-                  href={B2B_MARKETPLACE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
-                >
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-full gap-2 border-primary/40 text-foreground hover:bg-primary hover:text-primary-foreground font-semibold"
-                  >
-                    <span>Pazar Yeri Linkine Git</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </Button>
-                </a>
-              </CardContent>
-            </Card>
 
             {/* Contract & Approval Assurance */}
             <div className="p-4 rounded-xl border border-border bg-card space-y-2 text-xs text-muted-foreground">
