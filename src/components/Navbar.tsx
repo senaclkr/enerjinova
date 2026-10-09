@@ -14,10 +14,12 @@ export function Navbar() {
 
   const navLinks = [
     { name: "Hakkımızda", href: "#hakkimizda" },
+    { name: "Performans (KPI)", href: "#kpi" },
     { name: "Ürünler", href: "#urunler" },
     { name: "Bileşenler", href: "#mimari" },
     { name: "Fiyatlar", href: "#fiyat-listesi" },
-    { name: "Talep Formu", href: "#iletisim" },
+    { name: "Sipariş Formu", href: "#siparis" },
+    { name: "İletişim", href: "#iletisim" },
   ];
 
   return (
@@ -37,20 +39,20 @@ export function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Navigation (visible on lg and above to prevent tablet overflow) */}
-          <nav className="hidden lg:flex items-center gap-5">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-5">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:-translate-y-0.5 inline-block whitespace-nowrap"
+                className="text-xs xl:text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:-translate-y-0.5 inline-block whitespace-nowrap"
               >
                 {link.name}
               </a>
             ))}
           </nav>
 
-          {/* Desktop CTAs: B2B Marketplace & Contact */}
+          {/* Desktop CTAs: B2B Marketplace & Order button */}
           <div className="hidden lg:flex items-center gap-2.5 shrink-0">
             <a
               href={B2B_MARKETPLACE_URL}
@@ -69,9 +71,9 @@ export function Navbar() {
               </Button>
             </a>
 
-            <a href="#iletisim">
+            <a href="#siparis">
               <Button size="sm" className="text-xs font-semibold whitespace-nowrap">
-                Talep Gönder
+                Sipariş Ver
               </Button>
             </a>
           </div>
@@ -123,12 +125,12 @@ export function Navbar() {
               </a>
 
               <a
-                href="#iletisim"
+                href="#siparis"
                 onClick={() => setIsOpen(false)}
                 className="block w-full"
               >
                 <Button size="sm" className="w-full text-xs font-semibold justify-center py-2.5 h-auto">
-                  Ürün Talep Formu
+                  Sipariş & Talep Formu
                 </Button>
               </a>
             </div>

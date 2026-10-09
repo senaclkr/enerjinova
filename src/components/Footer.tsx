@@ -55,6 +55,14 @@ export function Footer() {
               </li>
               <li>
                 <a
+                  href="#kpi"
+                  className="hover:text-foreground transition-colors"
+                >
+                  Performans & KPI Paneli
+                </a>
+              </li>
+              <li>
+                <a
                   href="#urunler"
                   className="hover:text-foreground transition-colors"
                 >
@@ -75,6 +83,14 @@ export function Footer() {
                   className="hover:text-foreground transition-colors"
                 >
                   Fiyat Listesi & Koşullar
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#siparis"
+                  className="hover:text-foreground transition-colors"
+                >
+                  Sipariş Formu
                 </a>
               </li>
               <li>

@@ -49,6 +49,7 @@ export function ProductsSection() {
       ],
       ctaText: "Modül Tedariki Talep Et",
       highlight: true,
+      formHash: "#siparis-modul",
     },
     {
       id: "smartbox",
@@ -70,6 +71,7 @@ export function ProductsSection() {
       ],
       ctaText: "SmartBox Siparişi Oluştur",
       highlight: false,
+      formHash: "#siparis-smartbox",
     },
     {
       id: "b2b",
@@ -91,22 +93,9 @@ export function ProductsSection() {
       ],
       ctaText: "B2B Görüşmesi Başlat",
       highlight: false,
+      formHash: "#siparis-b2b",
     },
   ];
-
-  const handleSelectProductForForm = (productId: string) => {
-    if (typeof window !== "undefined") {
-      window.dispatchEvent(
-        new CustomEvent("enerjinova-select-product", {
-          detail: { productId },
-        })
-      );
-      const target = document.getElementById("iletisim");
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  };
 
   const filteredProducts =
     activeTab === "all"
@@ -239,15 +228,16 @@ export function ProductsSection() {
                 </CardContent>
 
                 <CardFooter className="pt-2 pb-4 sm:pb-6 px-4 sm:px-6 flex flex-col gap-2 w-full">
-                  <Button
-                    variant={product.highlight ? "default" : "outline"}
-                    size="sm"
-                    className="w-full gap-2 justify-center font-semibold text-xs sm:text-sm py-2.5 sm:py-2 h-auto"
-                    onClick={() => handleSelectProductForForm(product.id)}
-                  >
-                    <span>{product.ctaText}</span>
-                    <ArrowRight className="w-3.5 h-3.5 shrink-0" />
-                  </Button>
+                  <a href={product.formHash} className="w-full block">
+                    <Button
+                      variant={product.highlight ? "default" : "outline"}
+                      size="sm"
+                      className="w-full gap-2 justify-center font-semibold text-xs sm:text-sm py-2.5 sm:py-2 h-auto"
+                    >
+                      <span>{product.ctaText}</span>
+                      <ArrowRight className="w-3.5 h-3.5 shrink-0" />
+                    </Button>
+                  </a>
 
                   <a
                     href={B2B_MARKETPLACE_URL}
