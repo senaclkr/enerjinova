@@ -8,7 +8,7 @@ import { Footer } from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Hakkımızda & KPI Paneli | EnerjiNova A.Ş.",
   description:
-    "EnerjiNova A.Ş. kurumsal profili, misyonu, vizyonu ve Tur 2 resmî KPI performans göstergeleri tablosu.",
+    "EnerjiNova A.Ş. kurumsal profili, misyonu, vizyonu ve güncel simülasyon resmî KPI performans göstergeleri tablosu.",
 };
 
 export default function HakkimizdaPage() {
