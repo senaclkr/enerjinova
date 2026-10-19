@@ -7,7 +7,6 @@ import {
   Package,
   ShoppingBag,
   Award,
-  ShieldAlert,
   Info,
   CheckCircle2,
   ExternalLink,
@@ -198,19 +197,6 @@ export function KpiSection() {
             </CardContent>
           </Card>
 
-          {/* Privacy & Confidentiality Notice Box */}
-          <div className="mt-4 p-3.5 rounded-lg border border-amber-500/30 bg-amber-500/5 text-foreground flex items-start gap-3">
-            <ShieldAlert className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-            <div className="text-xs space-y-0.5">
-              <p className="font-semibold text-amber-600 dark:text-amber-400">
-                Güvenlik ve Veri Politikası
-              </p>
-              <p className="text-muted-foreground text-[11px] leading-relaxed">
-                Şirketin kasa, borç, personel ve iç performans bilgilerini herkese açık web
-                sayfanıza eklemeyin. Katalog yalnız satış ilanlarından beslenir.
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
