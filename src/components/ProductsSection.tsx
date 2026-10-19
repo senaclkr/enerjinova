@@ -252,10 +252,10 @@ export function ProductsSection() {
                     </Button>
                   </a>
                   <a
-                    href="#siparis"
+                    href="#fiyat-listesi"
                     className="text-[11px] text-muted-foreground hover:text-primary transition-colors text-center inline-block"
                   >
-                    Sipariş şartları ve detayları gör →
+                    Fiyat ve teslimat koşullarını gör →
                   </a>
                 </CardFooter>
               </Card>

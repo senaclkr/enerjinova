@@ -88,10 +88,12 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="/#siparis"
-                  className="hover:text-foreground transition-colors"
+                  href={B2B_MARKETPLACE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-foreground transition-colors font-medium text-foreground"
                 >
-                  Sipariş Formu
+                  Sipariş Ver (Lig Pazarı) ↗
                 </a>
               </li>
               <li>

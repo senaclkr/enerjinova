@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Menu, X, ShoppingBag, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const B2B_MARKETPLACE_URL =
+const ORDER_MARKETPLACE_URL =
   "https://dijital-sirketler-ligi-serhat-ata.ataserhat54.chatgpt.site/ogrenci?marketCompany=G01";
 
 export function Navbar() {
@@ -17,7 +17,6 @@ export function Navbar() {
     { name: "Ürünler", href: "/#urunler" },
     { name: "Bileşenler", href: "/#mimari" },
     { name: "Fiyatlar", href: "/#fiyat-listesi" },
-    { name: "Sipariş Formu", href: "/#siparis" },
     { name: "KPI Paneli", href: "/#kpi" },
     { name: "İletişim", href: "/#iletisim" },
   ];
@@ -52,28 +51,21 @@ export function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop CTAs: B2B Marketplace & Order button */}
+          {/* Desktop CTA: Sipariş Ver Button linking directly to League Market */}
           <div className="hidden lg:flex items-center gap-2.5 shrink-0">
             <a
-              href={B2B_MARKETPLACE_URL}
+              href={ORDER_MARKETPLACE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex"
             >
               <Button
-                variant="outline"
                 size="sm"
-                className="gap-1.5 text-xs font-semibold border-primary/30 text-foreground hover:bg-primary/10 hover:text-primary whitespace-nowrap"
+                className="gap-1.5 text-xs font-bold bg-primary hover:bg-primary/90 text-primary-foreground shadow-xs whitespace-nowrap"
               >
-                <ShoppingBag className="w-3.5 h-3.5 text-primary shrink-0" />
-                <span>B2B Pazar Yeri</span>
-                <ExternalLink className="w-3 h-3 opacity-70 shrink-0" />
-              </Button>
-            </a>
-
-            <a href="#siparis">
-              <Button size="sm" className="text-xs font-semibold whitespace-nowrap">
-                Sipariş Ver
+                <ShoppingBag className="w-3.5 h-3.5" />
+                <span>Sipariş Ver</span>
+                <ExternalLink className="w-3 h-3 opacity-80" />
               </Button>
             </a>
           </div>
@@ -105,32 +97,21 @@ export function Navbar() {
                 {link.name}
               </a>
             ))}
-            <div className="pt-2 px-1 space-y-2 border-t border-border/60">
+            <div className="pt-2 px-1 border-t border-border/60">
               <a
-                href={B2B_MARKETPLACE_URL}
+                href={ORDER_MARKETPLACE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
                 className="block w-full"
               >
                 <Button
-                  variant="outline"
                   size="sm"
-                  className="w-full gap-2 border-primary/30 justify-center text-xs font-semibold py-2.5 h-auto"
+                  className="w-full gap-2 justify-center text-xs font-bold py-2.5 h-auto bg-primary hover:bg-primary/90 text-primary-foreground"
                 >
-                  <ShoppingBag className="w-4 h-4 text-primary shrink-0" />
-                  <span>B2B Pazar Yeri (Satın Al)</span>
+                  <ShoppingBag className="w-4 h-4 shrink-0" />
+                  <span>Sipariş Ver</span>
                   <ExternalLink className="w-3.5 h-3.5 shrink-0" />
-                </Button>
-              </a>
-
-              <a
-                href="#siparis"
-                onClick={() => setIsOpen(false)}
-                className="block w-full"
-              >
-                <Button size="sm" className="w-full text-xs font-semibold justify-center py-2.5 h-auto">
-                  Sipariş & Talep Formu
                 </Button>
               </a>
             </div>
