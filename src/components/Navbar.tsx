@@ -16,7 +16,7 @@ export function Navbar() {
     { name: "Hakkımızda", href: "/hakkimizda" },
     { name: "Ürünler", href: "/#urunler" },
     { name: "Bileşenler", href: "/#mimari" },
-    { name: "Fiyatlar", href: "/#fiyat-listesi" },
+    { name: "Maliyet & Fiyatlar", href: "/#fiyat-listesi" },
     { name: "KPI Paneli", href: "/#kpi" },
     { name: "İletişim", href: "/#iletisim" },
   ];
