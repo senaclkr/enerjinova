@@ -7,7 +7,7 @@ import { Menu, X, ShoppingBag, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const B2B_MARKETPLACE_URL =
-  "https://dijital-sirketler-ligi-serhat-ata.ataserhat54.chatgpt.site/ogrenci";
+  "https://dijital-sirketler-ligi-serhat-ata.ataserhat54.chatgpt.site/ogrenci?marketCompany=G01";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,6 +18,7 @@ export function Navbar() {
     { name: "Bileşenler", href: "/#mimari" },
     { name: "Fiyatlar", href: "/#fiyat-listesi" },
     { name: "Sipariş Formu", href: "/#siparis" },
+    { name: "KPI Paneli", href: "/#kpi" },
     { name: "İletişim", href: "/#iletisim" },
   ];
 

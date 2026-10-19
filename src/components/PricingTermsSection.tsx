@@ -31,7 +31,7 @@ import {
 } from "@/components/ui/card";
 
 const B2B_MARKETPLACE_URL =
-  "https://dijital-sirketler-ligi-serhat-ata.ataserhat54.chatgpt.site/ogrenci";
+  "https://dijital-sirketler-ligi-serhat-ata.ataserhat54.chatgpt.site/ogrenci?marketCompany=G01";
 
 export function PricingTermsSection() {
   const terms = [
@@ -44,7 +44,7 @@ export function PricingTermsSection() {
     {
       title: "Ödeme Opsiyonu",
       detail: "Peşin / Vadeli",
-      explanation: "Peşin ödemede anlık kasa/stok intikali; vadeli işlemde vade turunda takas uygulanır.",
+      explanation: "Peşin işlemde anlık hesap ve stok intikali; vadeli işlemde vade turunda sözleşmeli teslimat uygulanır.",
       icon: Coins,
     },
     {

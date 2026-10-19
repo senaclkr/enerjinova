@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 
 const OFFICIAL_EMAIL = "enerjinova.iletisim@gmail.com";
 const B2B_MARKETPLACE_URL =
-  "https://dijital-sirketler-ligi-serhat-ata.ataserhat54.chatgpt.site/ogrenci";
+  "https://dijital-sirketler-ligi-serhat-ata.ataserhat54.chatgpt.site/ogrenci?marketCompany=G01";
 
 export function Footer() {
   const scrollToTop = () => {

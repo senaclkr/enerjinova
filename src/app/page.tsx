@@ -6,6 +6,7 @@ import { ProductsSection } from "@/components/ProductsSection";
 import { SmartBoxArchitecture } from "@/components/SmartBoxArchitecture";
 import { PricingTermsSection } from "@/components/PricingTermsSection";
 import { OrderSection } from "@/components/OrderSection";
+import { KpiSection } from "@/components/KpiSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 
@@ -20,6 +21,7 @@ export default function Home() {
         <SmartBoxArchitecture />
         <PricingTermsSection />
         <OrderSection />
+        <KpiSection />
         <ContactSection />
       </main>
       <Footer />

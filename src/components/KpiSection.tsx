@@ -1,17 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import {
-  TrendingUp,
-  TrendingDown,
-  Wallet,
-  PieChart,
-  Package,
-  Activity,
-  Award,
+  Zap,
   Layers,
+  Package,
+  ShoppingBag,
+  Award,
+  ShieldAlert,
+  Info,
   CheckCircle2,
-  SlidersHorizontal,
+  ExternalLink,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -30,252 +29,80 @@ import {
   CardContent,
 } from "@/components/ui/card";
 
-type TourKey = "Tur 3" | "Tur 2";
-
-interface KpiItem {
-  kategori: string;
-  gosterge: string;
-  deger: string;
-  icon: React.ElementType;
-  aciklama: string;
-  badgeVariant: "default" | "secondary" | "outline" | "destructive";
-  isNegative?: boolean;
-}
-
-interface HighlightCardItem {
-  title: string;
-  val: string;
-  sub: string;
-  icon: React.ElementType;
-  kategori: string;
-  isNegative?: boolean;
-}
-
-interface TourData {
-  label: string;
-  isCurrent: boolean;
-  highlights: HighlightCardItem[];
-  kpiData: KpiItem[];
-  footnote: string;
-}
-
-const TOURS_DATA: Record<TourKey, TourData> = {
-  "Tur 3": {
-    label: "Tur 3",
-    isCurrent: true,
-    highlights: [
-      {
-        title: "Güncel Kasa",
-        val: "230.886 ₺",
-        sub: "Mevcut nakit rezervi",
-        icon: Wallet,
-        kategori: "Finans",
-      },
-      {
-        title: "Net Kâr",
-        val: "-168.251 ₺",
-        sub: "Dönemsel operasyon/yatırım dengesi",
-        icon: TrendingDown,
-        kategori: "Finans",
-        isNegative: true,
-      },
-      {
-        title: "Kapasite Kullanımı",
-        val: "%33.3",
-        sub: "Revize üretim kapasitesi",
-        icon: Activity,
-        kategori: "Operasyon",
-      },
-      {
-        title: "Yönetişim Puanı",
-        val: "80.0 / 100",
-        sub: "B2B güven endeksi (Stabil)",
-        icon: Award,
-        kategori: "Kurumsal",
-      },
-    ],
-    kpiData: [
-      {
-        kategori: "Finans",
-        gosterge: "Net Kâr",
-        deger: "-168.251 ₺",
-        icon: TrendingDown,
-        aciklama: "Dönemsel operasyon ve yatırım maliyeti",
-        badgeVariant: "destructive",
-        isNegative: true,
-      },
-      {
-        kategori: "Finans",
-        gosterge: "Güncel Kasa",
-        deger: "230.886 ₺",
-        icon: Wallet,
-        aciklama: "Likidite ve operasyonel rezerv",
-        badgeVariant: "default",
-      },
-      {
-        kategori: "Pazar",
-        gosterge: "Pazar Payı",
-        deger: "%0.0",
-        icon: PieChart,
-        aciklama: "Dönemsel pazar payı / toparlanma odağı",
-        badgeVariant: "secondary",
-      },
-      {
-        kategori: "Pazar",
-        gosterge: "Satış Hacmi",
-        deger: "0 Adet",
-        icon: Package,
-        aciklama: "Tur 3 nihai teslimat ve satış kaydı",
-        badgeVariant: "secondary",
-      },
-      {
-        kategori: "Operasyon",
-        gosterge: "Kapasite Kullanımı",
-        deger: "%33.3",
-        icon: Activity,
-        aciklama: "Revize edilmiş üretim kapasitesi",
-        badgeVariant: "outline",
-      },
-      {
-        kategori: "Kurumsal",
-        gosterge: "Yönetişim Puanı",
-        deger: "80.0 / 100",
-        icon: Award,
-        aciklama: "Yüksek yönetsel güvenilirlik (Stabil)",
-        badgeVariant: "outline",
-      },
-      {
-        kategori: "Kurumsal",
-        gosterge: "Dijital Olgunluk",
-        deger: "50.0 / 100",
-        icon: Layers,
-        aciklama: "Sürekli optimize edilen altyapı (Stabil)",
-        badgeVariant: "outline",
-      },
-    ],
-    footnote:
-      "* Bu veriler Tur 3 resmî sonuç kayıtlarını temsil eder; gelecek turda toparlanma, satış ivmesi ve kârlılık stratejisi hedeflenmektedir.",
-  },
-  "Tur 2": {
-    label: "Tur 2",
-    isCurrent: false,
-    highlights: [
-      {
-        title: "Güncel Kasa",
-        val: "483.008 ₺",
-        sub: "Güçlü likidite rezervi",
-        icon: Wallet,
-        kategori: "Finans",
-      },
-      {
-        title: "Net Kâr",
-        val: "48.162 ₺",
-        sub: "Sürdürülebilir büyüme",
-        icon: TrendingUp,
-        kategori: "Finans",
-      },
-      {
-        title: "Kapasite Kullanımı",
-        val: "%50.2",
-        sub: "3 kat artış potansiyeli",
-        icon: Activity,
-        kategori: "Operasyon",
-      },
-      {
-        title: "Yönetişim Puanı",
-        val: "80.0 / 100",
-        sub: "B2B güven endeksi",
-        icon: Award,
-        kategori: "Kurumsal",
-      },
-    ],
-    kpiData: [
-      {
-        kategori: "Finans",
-        gosterge: "Net Kâr",
-        deger: "48.162 ₺",
-        icon: TrendingUp,
-        aciklama: "Pozitif kârlılık dengesi",
-        badgeVariant: "default",
-      },
-      {
-        kategori: "Finans",
-        gosterge: "Güncel Kasa",
-        deger: "483.008 ₺",
-        icon: Wallet,
-        aciklama: "Likidite ve yatırım gücü",
-        badgeVariant: "default",
-      },
-      {
-        kategori: "Pazar",
-        gosterge: "Pazar Payı",
-        deger: "%6.8",
-        icon: PieChart,
-        aciklama: "B2B modül arzı ile artış trendinde",
-        badgeVariant: "secondary",
-      },
-      {
-        kategori: "Pazar",
-        gosterge: "Satış Hacmi",
-        deger: "150 Adet",
-        icon: Package,
-        aciklama: "SmartBox nihai cihaz satışı",
-        badgeVariant: "secondary",
-      },
-      {
-        kategori: "Operasyon",
-        gosterge: "Kapasite Kullanımı",
-        deger: "%50.2",
-        icon: Activity,
-        aciklama: "Üretim ölçekleme için esnek alan",
-        badgeVariant: "outline",
-      },
-      {
-        kategori: "Kurumsal",
-        gosterge: "Yönetişim Puanı",
-        deger: "80.0 / 100",
-        icon: Award,
-        aciklama: "Yüksek yönetsel güvenilirlik",
-        badgeVariant: "outline",
-      },
-      {
-        kategori: "Kurumsal",
-        gosterge: "Dijital Olgunluk",
-        deger: "50.0 / 100",
-        icon: Layers,
-        aciklama: "Sürekli optimize edilen altyapı",
-        badgeVariant: "outline",
-      },
-    ],
-    footnote:
-      "* Bu veriler bir sonraki turda (Tur 3) hedeflenen 3 kat üretim ve dengeli stok yönetim planının temelini teşkil eder.",
-  },
-};
-
 export function KpiSection() {
-  const [selectedTour, setSelectedTour] = useState<TourKey>("Tur 3");
-  const activeTourData = TOURS_DATA[selectedTour];
+  const kpiList = [
+    {
+      kategori: "Üretim",
+      gosterge: "Bu tur uzmanlık üretimi",
+      deger: "2621 Adet",
+      rawValue: "2621",
+      icon: Zap,
+      aciklama: "G01 Enerji Modülü haftalık uzmanlık üretim hacmi",
+      badgeVariant: "default" as const,
+      highlight: true,
+    },
+    {
+      kategori: "Montaj",
+      gosterge: "Bu tur SmartBox montajı",
+      deger: "350 Adet",
+      rawValue: "350",
+      icon: Layers,
+      aciklama: "Tamamlanan bütünleşik SmartBox montaj miktarı",
+      badgeVariant: "secondary" as const,
+      highlight: true,
+    },
+    {
+      kategori: "Stok",
+      gosterge: "Hazır SmartBox",
+      deger: "0 Adet",
+      rawValue: "0",
+      icon: Package,
+      aciklama: "Depoda sevke hazır nihai SmartBox adedi",
+      badgeVariant: "outline" as const,
+      highlight: false,
+    },
+    {
+      kategori: "Satış",
+      gosterge: "Son kapanan tur satışı",
+      deger: "0 Adet",
+      rawValue: "0",
+      icon: ShoppingBag,
+      aciklama: "Son kapanan simülasyon turunda gerçekleşen satış",
+      badgeVariant: "outline" as const,
+      highlight: false,
+    },
+    {
+      kategori: "Memnuniyet",
+      gosterge: "Müşteri memnuniyeti /100",
+      deger: "82 / 100",
+      rawValue: "82",
+      icon: Award,
+      aciklama: "Lig ekosistemi müşteri memnuniyet ve kalite skoru",
+      badgeVariant: "default" as const,
+      highlight: true,
+    },
+  ];
 
   return (
     <section id="kpi" className="py-16 bg-muted/20 border-b border-border">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto space-y-2.5">
-          <Badge variant="secondary" className="px-3 py-0.5 text-xs font-medium">
-            Resmî Simülasyon Verileri • {selectedTour}
+          <Badge variant="secondary" className="px-3 py-0.5 text-xs font-semibold">
+            Şirketinize Özel • Performans Takibi
           </Badge>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
-            Performans Göstergeleri (KPI Paneli)
+            KPI Paneli · Şirketinize Özel
           </h2>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            EnerjiNova A.Ş.&apos;nin finansal yapısını, operasyonel kapasitesini ve pazar
-            durumunu gösteren güncel resmî göstergeler.
+            KPI, anahtar performans göstergesidir. Haftalık raporunuzda üretimi,
+            montajı, satışları ve müşteri memnuniyetini bu göstergelerle izleyin.
           </p>
         </div>
 
-        {/* 4 Minimal Metric Cards */}
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 max-w-4xl mx-auto">
-          {activeTourData.highlights.map((item, idx) => {
+        {/* 5 KPI Metric Cards */}
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 max-w-5xl mx-auto">
+          {kpiList.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
@@ -283,32 +110,22 @@ export function KpiSection() {
                 className="p-4 rounded-lg border border-border bg-card card-hover-effect flex flex-col justify-between transition-all"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
+                  <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">
                     {item.kategori}
                   </span>
-                  <div
-                    className={`p-1.5 rounded-md ${
-                      item.isNegative
-                        ? "bg-destructive/10 text-destructive"
-                        : "bg-primary/10 text-primary"
-                    }`}
-                  >
+                  <div className="p-1.5 rounded-md bg-primary/10 text-primary">
                     <Icon className="w-4 h-4" />
                   </div>
                 </div>
-                <div className="mt-2">
-                  <div
-                    className={`text-xl sm:text-2xl font-black tracking-tight ${
-                      item.isNegative ? "text-destructive" : "text-foreground"
-                    }`}
-                  >
-                    {item.val}
+                <div className="mt-3">
+                  <div className="text-2xl font-black text-foreground tracking-tight">
+                    {item.rawValue}
                   </div>
                   <div className="text-xs font-semibold text-foreground mt-0.5">
-                    {item.title}
+                    {item.gosterge}
                   </div>
-                  <div className="text-[11px] text-muted-foreground mt-0.5">
-                    {item.sub}
+                  <div className="text-[11px] text-muted-foreground mt-1 line-clamp-2 leading-snug">
+                    {item.aciklama}
                   </div>
                 </div>
               </div>
@@ -316,49 +133,25 @@ export function KpiSection() {
           })}
         </div>
 
-        {/* Official KPI Table */}
+        {/* KPI Details Table */}
         <div className="mt-8 max-w-3xl mx-auto">
           <Card className="border-border shadow-xs">
             <CardHeader className="py-4 border-b border-border">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                 <div>
                   <CardTitle className="text-base flex items-center gap-2">
-                    <span>Kurumsal KPI ve Sonuç Tablosu</span>
+                    <span>Haftalık Operasyonel KPI Tablosu</span>
                     <Badge variant="outline" className="text-[10px] font-normal">
-                      {selectedTour} Resmî Kayıt
+                      Aktif Rapor
                     </Badge>
                   </CardTitle>
                   <CardDescription className="text-xs">
-                    Simülasyon finans ve sonuçlar modülünden aktarılan temel göstergeler
+                    Üretim, montaj, pazar satışları ve memnuniyet endeksleri
                   </CardDescription>
                 </div>
-
-                {/* Tour Selector Combobox */}
-                <div className="flex items-center gap-2.5 self-start sm:self-auto">
-                  <div className="flex items-center gap-1.5 bg-muted/60 px-2.5 py-1 rounded-md border border-border shadow-2xs">
-                    <SlidersHorizontal className="w-3.5 h-3.5 text-primary shrink-0" />
-                    <label
-                      htmlFor="tour-combobox"
-                      className="text-[11px] font-semibold text-foreground whitespace-nowrap cursor-pointer"
-                    >
-                      Tur Seçimi:
-                    </label>
-                    <select
-                      id="tour-combobox"
-                      aria-label="Simülasyon Turu Seçimi"
-                      value={selectedTour}
-                      onChange={(e) => setSelectedTour(e.target.value as TourKey)}
-                      className="h-7 text-xs font-bold rounded bg-background px-2 text-foreground border border-input shadow-2xs focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary cursor-pointer"
-                    >
-                      <option value="Tur 3">Tur 3 (Güncel Değerler)</option>
-                      <option value="Tur 2">Tur 2 (Önceki Kayıtlar)</option>
-                    </select>
-                  </div>
-
-                  <div className="hidden md:flex items-center gap-1 text-[11px] text-primary font-medium">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>Onaylı</span>
-                  </div>
+                <div className="flex items-center gap-1.5 text-xs text-primary font-medium">
+                  <CheckCircle2 className="w-3.5 h-3.5" />
+                  <span>Onaylı Veriler</span>
                 </div>
               </div>
             </CardHeader>
@@ -367,26 +160,18 @@ export function KpiSection() {
                 <TableHeader>
                   <TableRow>
                     <TableHead className="w-[28%]">Kategori</TableHead>
-                    <TableHead className="w-[36%]">Gösterge (KPI)</TableHead>
-                    <TableHead className="w-[36%] text-right">
-                      Güncel Değer ({selectedTour})
-                    </TableHead>
+                    <TableHead className="w-[42%]">Gösterge (KPI)</TableHead>
+                    <TableHead className="w-[30%] text-right">Rapor Değeri</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {activeTourData.kpiData.map((row, idx) => {
+                  {kpiList.map((row, idx) => {
                     const Icon = row.icon;
                     return (
                       <TableRow key={idx} className="transition-colors">
                         <TableCell className="font-medium text-foreground">
                           <div className="flex items-center gap-2">
-                            <span
-                              className={`p-1 rounded-md ${
-                                row.isNegative
-                                  ? "bg-destructive/10 text-destructive"
-                                  : "bg-muted text-muted-foreground"
-                              }`}
-                            >
+                            <span className="p-1 rounded-md bg-muted text-muted-foreground">
                               <Icon className="w-3.5 h-3.5" />
                             </span>
                             <span className="text-xs">{row.kategori}</span>
@@ -401,13 +186,7 @@ export function KpiSection() {
                           </div>
                         </TableCell>
                         <TableCell className="text-right">
-                          <span
-                            className={`font-bold text-xs sm:text-sm px-2.5 py-1 rounded-md border inline-block ${
-                              row.isNegative
-                                ? "text-destructive bg-destructive/10 border-destructive/20"
-                                : "text-foreground bg-muted/60 border-border/50"
-                            }`}
-                          >
+                          <span className="font-bold text-xs sm:text-sm px-2.5 py-1 rounded-md border text-foreground bg-muted/60 border-border/50 inline-block">
                             {row.deger}
                           </span>
                         </TableCell>
@@ -419,11 +198,18 @@ export function KpiSection() {
             </CardContent>
           </Card>
 
-          {/* Footnote note */}
-          <div className="mt-3 text-center">
-            <p className="text-[11px] text-muted-foreground">
-              {activeTourData.footnote}
-            </p>
+          {/* Privacy & Confidentiality Notice Box */}
+          <div className="mt-4 p-3.5 rounded-lg border border-amber-500/30 bg-amber-500/5 text-foreground flex items-start gap-3">
+            <ShieldAlert className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+            <div className="text-xs space-y-0.5">
+              <p className="font-semibold text-amber-600 dark:text-amber-400">
+                Güvenlik ve Veri Politikası
+              </p>
+              <p className="text-muted-foreground text-[11px] leading-relaxed">
+                Şirketin kasa, borç, personel ve iç performans bilgilerini herkese açık web
+                sayfanıza eklemeyin. Katalog yalnız satış ilanlarından beslenir.
+              </p>
+            </div>
           </div>
         </div>
       </div>

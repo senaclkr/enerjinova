@@ -20,7 +20,7 @@ export function AboutSection() {
     {
       icon: Scale,
       title: "Mali Disiplin",
-      desc: "1.000.000 ₺ aktif büyüklük ve 750.000 ₺ öz sermaye ile güçlü bilanço yapısı.",
+      desc: "Sürdürülebilir büyüme, disiplinli bütçe yönetimi ve operasyonel güvenilirlik.",
     },
     {
       icon: Building2,
