@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { AboutSection } from "@/components/AboutSection";
 import { KpiSection } from "@/components/KpiSection";
+import { LiveOperationsPanel } from "@/components/LiveOperationsPanel";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export default function HakkimizdaPage() {
       <main className="flex-grow">
         <AboutSection />
         <KpiSection />
+        <LiveOperationsPanel />
       </main>
       <Footer />
     </div>

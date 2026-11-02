@@ -18,6 +18,7 @@ export function Navbar() {
     { name: "Bileşenler", href: "/#mimari" },
     { name: "Maliyet & Fiyatlar", href: "/#fiyat-listesi" },
     { name: "KPI Paneli", href: "/#kpi" },
+    { name: "Canlı Operasyon", href: "/#canli-operasyon" },
     { name: "İletişim", href: "/#iletisim" },
   ];
 

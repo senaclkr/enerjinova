@@ -64,6 +64,14 @@ export function Footer() {
               </li>
               <li>
                 <a
+                  href="/#canli-operasyon"
+                  className="hover:text-foreground transition-colors font-medium text-foreground"
+                >
+                  Canlı Operasyon & Envanter
+                </a>
+              </li>
+              <li>
+                <a
                   href="/#urunler"
                   className="hover:text-foreground transition-colors"
                 >
