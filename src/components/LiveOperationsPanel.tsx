@@ -4,7 +4,7 @@ import React from "react";
 import {
   Activity,
   Warehouse,
-  AlertTriangle,
+  AlertCircle,
   CheckCircle2,
   Cpu,
   Layers,
@@ -31,14 +31,6 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
-import {
-  Table,
-  TableHeader,
-  TableBody,
-  TableHead,
-  TableRow,
-  TableCell,
-} from "@/components/ui/table";
 
 const ORDER_MARKETPLACE_URL =
   "https://dijital-sirketler-ligi-serhat-ata.ataserhat54.chatgpt.site/ogrenci?marketCompany=G01";
@@ -86,7 +78,7 @@ export function LiveOperationsPanel() {
       name: "İşlemci Modülü",
       qty: 68,
       status: "Darboğaz Eşiği",
-      statusVariant: "destructive" as const,
+      statusVariant: "outline" as const,
       isBottleneck: true,
       icon: Cpu,
       note: "Kritik montaj tavanı (68 Adet)",
@@ -95,7 +87,7 @@ export function LiveOperationsPanel() {
       name: "Sensör Kiti",
       qty: 68,
       status: "Darboğaz Eşiği",
-      statusVariant: "destructive" as const,
+      statusVariant: "outline" as const,
       isBottleneck: true,
       icon: Activity,
       note: "Kritik montaj tavanı (68 Adet)",
@@ -104,7 +96,7 @@ export function LiveOperationsPanel() {
       name: "Kasa ve Ambalaj",
       qty: 68,
       status: "Darboğaz Eşiği",
-      statusVariant: "destructive" as const,
+      statusVariant: "outline" as const,
       isBottleneck: true,
       icon: Box,
       note: "Kritik montaj tavanı (68 Adet)",
@@ -113,7 +105,7 @@ export function LiveOperationsPanel() {
       name: "Yazılım Lisansı",
       qty: 68,
       status: "Darboğaz Eşiği",
-      statusVariant: "destructive" as const,
+      statusVariant: "outline" as const,
       isBottleneck: true,
       icon: Code2,
       note: "Kritik montaj tavanı (68 Adet)",
@@ -130,7 +122,7 @@ export function LiveOperationsPanel() {
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2">
             <Badge variant="secondary" className="px-3 py-1 text-xs font-semibold">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse mr-1.5" />
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse mr-1.5" />
               Canlı Takip & Envanter Kontrolü
             </Badge>
           </div>
@@ -170,7 +162,7 @@ export function LiveOperationsPanel() {
               </div>
               <div className="mt-3">
                 <div className="text-2xl sm:text-3xl font-black text-foreground tracking-tight">
-                  %18 <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">Aktif</span>
+                  %18 <span className="text-xs font-semibold text-primary">Aktif</span>
                 </div>
                 <div className="text-xs font-semibold text-foreground mt-1">
                   1.081 / 6.000 Yer Kullanımda
@@ -188,7 +180,7 @@ export function LiveOperationsPanel() {
                 <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
                   Çekirdek Üretim Kotası
                 </span>
-                <div className="p-1.5 rounded-md bg-amber-500/10 text-amber-600 dark:text-amber-400">
+                <div className="p-1.5 rounded-md bg-muted text-muted-foreground">
                   <Lock className="w-4 h-4" />
                 </div>
               </div>
@@ -196,7 +188,7 @@ export function LiveOperationsPanel() {
                 <div className="text-2xl sm:text-3xl font-black text-foreground tracking-tight">
                   0 Birim
                 </div>
-                <div className="text-xs font-semibold text-amber-600 dark:text-amber-400 mt-1">
+                <div className="text-xs font-semibold text-foreground mt-1">
                   Uzmanlık Hakkı Tamamen Kullanıldı
                 </div>
                 <div className="text-[11px] text-muted-foreground mt-1">
@@ -206,20 +198,20 @@ export function LiveOperationsPanel() {
             </div>
 
             {/* Kritik Darboğaz (BOM) */}
-            <div className="p-4 rounded-xl border border-destructive/40 bg-destructive/5 shadow-xs flex flex-col justify-between">
+            <div className="p-4 rounded-xl border border-border bg-card shadow-xs flex flex-col justify-between">
               <div className="flex items-center justify-between">
-                <span className="text-[11px] font-bold text-destructive uppercase tracking-wider">
+                <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
                   Kritik Darboğaz (BOM)
                 </span>
-                <div className="p-1.5 rounded-md bg-destructive/10 text-destructive">
-                  <AlertTriangle className="w-4 h-4" />
+                <div className="p-1.5 rounded-md bg-muted text-foreground">
+                  <AlertCircle className="w-4 h-4" />
                 </div>
               </div>
               <div className="mt-3">
-                <div className="text-2xl sm:text-3xl font-black text-destructive tracking-tight">
+                <div className="text-2xl sm:text-3xl font-black text-foreground tracking-tight">
                   68 Montaj Limiti
                 </div>
-                <div className="text-xs font-semibold text-destructive mt-1">
+                <div className="text-xs font-semibold text-foreground mt-1">
                   4 Bileşende Eş Zamanlı Kısıt
                 </div>
                 <div className="text-[11px] text-muted-foreground mt-1">
@@ -229,12 +221,12 @@ export function LiveOperationsPanel() {
             </div>
 
             {/* Bulunabilirlik */}
-            <div className="p-4 rounded-xl border border-emerald-500/30 bg-emerald-500/5 shadow-xs flex flex-col justify-between">
+            <div className="p-4 rounded-xl border border-border bg-card shadow-xs flex flex-col justify-between">
               <div className="flex items-center justify-between">
-                <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider">
+                <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
                   Bulunabilirlik
                 </span>
-                <div className="p-1.5 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                <div className="p-1.5 rounded-md bg-primary/10 text-primary">
                   <CheckCircle2 className="w-4 h-4" />
                 </div>
               </div>
@@ -242,7 +234,7 @@ export function LiveOperationsPanel() {
                 <div className="text-2xl sm:text-3xl font-black text-foreground tracking-tight">
                   132 Adet
                 </div>
-                <div className="text-xs font-bold text-emerald-700 dark:text-emerald-400 mt-1">
+                <div className="text-xs font-bold text-primary mt-1">
                   SmartBox Stokta (Hemen Teslim)
                 </div>
                 <div className="text-[11px] text-muted-foreground mt-1">
@@ -278,23 +270,19 @@ export function LiveOperationsPanel() {
                   key={idx}
                   className={`p-3.5 rounded-lg border flex flex-col justify-between transition-all ${
                     item.isBottleneck
-                      ? "border-destructive/40 bg-destructive/5 ring-1 ring-destructive/20"
+                      ? "border-border/80 bg-muted/40"
                       : "border-border bg-card"
                   }`}
                 >
                   <div className="flex items-start justify-between gap-2">
-                    <div
-                      className={`p-2 rounded-md ${
-                        item.isBottleneck
-                          ? "bg-destructive/10 text-destructive"
-                          : "bg-primary/10 text-primary"
-                      }`}
-                    >
+                    <div className="p-2 rounded-md bg-muted text-muted-foreground">
                       <Icon className="w-4 h-4" />
                     </div>
                     <Badge
-                      variant={item.isBottleneck ? "destructive" : "secondary"}
-                      className="text-[10px] px-1.5 py-0"
+                      variant={item.isBottleneck ? "outline" : "secondary"}
+                      className={`text-[10px] px-1.5 py-0 ${
+                        item.isBottleneck ? "border-border text-muted-foreground font-medium" : ""
+                      }`}
                     >
                       {item.status}
                     </Badge>
@@ -339,7 +327,7 @@ export function LiveOperationsPanel() {
                     <Zap className="w-4 h-4" />
                     <span>Enerji Modülü Uzmanlık Üretim Bandı</span>
                   </div>
-                  <Badge variant="outline" className="text-[10px] text-amber-600 border-amber-500/30">
+                  <Badge variant="outline" className="text-[10px]">
                     Kapasite Dolu
                   </Badge>
                 </div>
@@ -356,7 +344,7 @@ export function LiveOperationsPanel() {
                 </p>
                 <div className="p-2.5 rounded-md bg-muted/50 border border-border flex items-center justify-between text-[11px]">
                   <span className="text-muted-foreground">Aktif Çekirdek Üretim:</span>
-                  <span className="font-bold text-destructive">Yapılamıyor (0 Hak)</span>
+                  <span className="font-semibold text-foreground">Yapılamıyor (0 Hak)</span>
                 </div>
               </CardContent>
             </Card>
@@ -365,7 +353,7 @@ export function LiveOperationsPanel() {
             <Card className="border-border bg-card shadow-xs">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-semibold text-xs">
+                  <div className="flex items-center gap-2 text-primary font-semibold text-xs">
                     <Layers className="w-4 h-4" />
                     <span>SmartBox Montaj ve Entegrasyon Hattı</span>
                   </div>
@@ -386,7 +374,7 @@ export function LiveOperationsPanel() {
                 </p>
                 <div className="p-2.5 rounded-md bg-muted/50 border border-border flex items-center justify-between text-[11px]">
                   <span className="text-muted-foreground">Hat İlerleme Durumu:</span>
-                  <span className="font-bold text-emerald-600 dark:text-emerald-400">%66 Tamamlandı</span>
+                  <span className="font-bold text-primary">%66 Tamamlandı</span>
                 </div>
               </CardContent>
             </Card>
@@ -397,7 +385,7 @@ export function LiveOperationsPanel() {
         <div className="space-y-4">
           <div className="border-b border-border pb-2.5">
             <h3 className="text-sm sm:text-base font-bold text-foreground flex items-center gap-2 uppercase tracking-wide">
-              <AlertTriangle className="w-4 h-4 text-destructive" />
+              <AlertCircle className="w-4 h-4 text-muted-foreground" />
               <span>Darboğaz Analizi ve Simülatör</span>
             </h3>
             <p className="text-xs text-muted-foreground">
@@ -405,15 +393,15 @@ export function LiveOperationsPanel() {
             </p>
           </div>
 
-          <Card className="border-destructive/40 bg-gradient-to-br from-destructive/5 via-card to-card shadow-xs overflow-hidden">
+          <Card className="border-border bg-card shadow-xs overflow-hidden">
             <CardContent className="p-5 sm:p-6 space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div className="space-y-1">
                   <div className="inline-flex items-center gap-2">
-                    <Badge variant="destructive" className="text-xs font-bold">
+                    <Badge variant="secondary" className="text-xs font-semibold">
                       Kritik Darboğaz Eşiği
                     </Badge>
-                    <span className="text-xs font-semibold text-foreground">
+                    <span className="text-xs font-semibold text-muted-foreground">
                       Çoklu Bileşen Kısıtı (68 Adet)
                     </span>
                   </div>
@@ -423,11 +411,11 @@ export function LiveOperationsPanel() {
                 </div>
                 <div className="text-left sm:text-right shrink-0">
                   <span className="text-xs text-muted-foreground block">Zincir Kilitlenme Noktası:</span>
-                  <span className="text-2xl font-black text-destructive">68. Ünite</span>
+                  <span className="text-2xl font-black text-foreground">68. Ünite</span>
                 </div>
               </div>
 
-              <div className="p-4 rounded-lg bg-background/80 border border-border space-y-2 text-xs text-muted-foreground leading-relaxed">
+              <div className="p-4 rounded-lg bg-muted/40 border border-border space-y-2 text-xs text-muted-foreground leading-relaxed">
                 <p>
                   EnerjiNova bünyesinde devam eden nihai montaj hatları haricinde, yeni bir montaj hattı başlatılmak istendiğinde <strong>maksimum 68 adet SmartBox</strong> üretilebilmektedir.
                 </p>
@@ -441,7 +429,7 @@ export function LiveOperationsPanel() {
                 {["İşlemci Modülü: 68 Adet", "Sensör Kiti: 68 Adet", "Kasa ve Ambalaj: 68 Adet", "Yazılım Lisansı: 68 Adet"].map((c, i) => (
                   <div
                     key={i}
-                    className="p-2 rounded-md bg-destructive/10 border border-destructive/20 text-destructive text-[11px] font-semibold text-center"
+                    className="p-2 rounded-md bg-muted/60 border border-border text-foreground text-[11px] font-medium text-center"
                   >
                     {c}
                   </div>
@@ -455,7 +443,7 @@ export function LiveOperationsPanel() {
         <div className="space-y-4">
           <div className="border-b border-border pb-2.5">
             <h3 className="text-sm sm:text-base font-bold text-foreground flex items-center gap-2 uppercase tracking-wide">
-              <Clock className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              <Clock className="w-4 h-4 text-primary" />
               <span>Ürün Bulunabilirliği ve Sipariş Teslim Süreleri</span>
             </h3>
             <p className="text-xs text-muted-foreground">
@@ -471,7 +459,7 @@ export function LiveOperationsPanel() {
                   <Badge variant="default" className="text-[10px]">
                     Hazır Nihai Ürün
                   </Badge>
-                  <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+                  <span className="text-xs font-bold text-primary flex items-center gap-1">
                     <CheckCircle2 className="w-3.5 h-3.5" />
                     Hemen Teslim
                   </span>
@@ -498,7 +486,7 @@ export function LiveOperationsPanel() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Lojistik Durumu:</span>
-                    <span className="font-semibold text-emerald-600 dark:text-emerald-400">Anında Sevkiyata Hazır</span>
+                    <span className="font-semibold text-primary">Anında Sevkiyata Hazır</span>
                   </div>
                 </div>
               </CardContent>
